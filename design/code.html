@@ -1,412 +1,697 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Aldo Guevara Muñoz | FullStack Developer</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-container-high": "#e7e8e9",
-                        "on-primary": "#ffffff",
-                        "on-tertiary-container": "#ffaa8a",
-                        "on-primary-fixed-variant": "#00419e",
-                        "on-error-container": "#93000a",
-                        "on-background": "#191c1d",
-                        "on-secondary-fixed": "#1c1b1b",
-                        "on-secondary": "#ffffff",
-                        "on-secondary-container": "#656464",
-                        "error": "#ba1a1a",
-                        "on-surface": "#191c1d",
-                        "outline": "#737784",
-                        "surface-container-low": "#f3f4f5",
-                        "inverse-surface": "#2e3132",
-                        "tertiary-container": "#8b2e01",
-                        "primary-fixed": "#dae2ff",
-                        "secondary-container": "#e5e2e1",
-                        "primary": "#00327d",
-                        "tertiary-fixed": "#ffdbcf",
-                        "secondary-fixed": "#e5e2e1",
-                        "primary-fixed-dim": "#b1c5ff",
-                        "on-surface-variant": "#434653",
-                        "on-primary-fixed": "#001946",
-                        "outline-variant": "#c3c6d5",
-                        "error-container": "#ffdad6",
-                        "surface-bright": "#f8f9fa",
-                        "tertiary": "#651f00",
-                        "inverse-primary": "#b1c5ff",
-                        "on-error": "#ffffff",
-                        "on-tertiary-fixed-variant": "#802900",
-                        "tertiary-fixed-dim": "#ffb59a",
-                        "primary-container": "#0047ab",
-                        "on-tertiary-fixed": "#380d00",
-                        "surface": "#f8f9fa",
-                        "surface-tint": "#2559bd",
-                        "surface-dim": "#d9dadb",
-                        "surface-container-highest": "#e1e3e4",
-                        "secondary": "#5f5e5e",
-                        "background": "#f8f9fa",
-                        "surface-variant": "#e1e3e4",
-                        "on-tertiary": "#ffffff",
-                        "secondary-fixed-dim": "#c8c6c5",
-                        "inverse-on-surface": "#f0f1f2",
-                        "on-primary-container": "#a5bdff",
-                        "surface-container": "#edeeef",
-                        "on-secondary-fixed-variant": "#474646",
-                        "surface-container-lowest": "#ffffff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "xs": "4px",
-                        "max-width": "1200px",
-                        "xl": "80px",
-                        "md": "24px",
-                        "base": "8px",
-                        "sm": "12px",
-                        "lg": "48px",
-                        "gutter": "24px",
-                        "margin-mobile": "16px"
-                    },
-                    "fontFamily": {
-                        "headline-sm": ["Inter"],
-                        "display-lg": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "display-lg-mobile": ["Inter"],
-                        "body-md": ["Inter"],
-                        "label-mono": ["JetBrains Mono"]
-                    },
-                    "fontSize": {
-                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
-                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "label-mono": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }]
-                    }
-                }
-            }
-        }
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Aldo Guevara Muñoz | FullStack Developer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'surface-container-high': '#e7e8e9',
+              'on-primary': '#ffffff',
+              'on-tertiary-container': '#ffaa8a',
+              'on-primary-fixed-variant': '#00419e',
+              'on-error-container': '#93000a',
+              'on-background': '#191c1d',
+              'on-secondary-fixed': '#1c1b1b',
+              'on-secondary': '#ffffff',
+              'on-secondary-container': '#656464',
+              error: '#ba1a1a',
+              'on-surface': '#191c1d',
+              outline: '#737784',
+              'surface-container-low': '#f3f4f5',
+              'inverse-surface': '#2e3132',
+              'tertiary-container': '#8b2e01',
+              'primary-fixed': '#dae2ff',
+              'secondary-container': '#e5e2e1',
+              primary: '#00327d',
+              'tertiary-fixed': '#ffdbcf',
+              'secondary-fixed': '#e5e2e1',
+              'primary-fixed-dim': '#b1c5ff',
+              'on-surface-variant': '#434653',
+              'on-primary-fixed': '#001946',
+              'outline-variant': '#c3c6d5',
+              'error-container': '#ffdad6',
+              'surface-bright': '#f8f9fa',
+              tertiary: '#651f00',
+              'inverse-primary': '#b1c5ff',
+              'on-error': '#ffffff',
+              'on-tertiary-fixed-variant': '#802900',
+              'tertiary-fixed-dim': '#ffb59a',
+              'primary-container': '#0047ab',
+              'on-tertiary-fixed': '#380d00',
+              surface: '#f8f9fa',
+              'surface-tint': '#2559bd',
+              'surface-dim': '#d9dadb',
+              'surface-container-highest': '#e1e3e4',
+              secondary: '#5f5e5e',
+              background: '#f8f9fa',
+              'surface-variant': '#e1e3e4',
+              'on-tertiary': '#ffffff',
+              'secondary-fixed-dim': '#c8c6c5',
+              'inverse-on-surface': '#f0f1f2',
+              'on-primary-container': '#a5bdff',
+              'surface-container': '#edeeef',
+              'on-secondary-fixed-variant': '#474646',
+              'surface-container-lowest': '#ffffff',
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+            spacing: {
+              xs: '4px',
+              'max-width': '1200px',
+              xl: '80px',
+              md: '24px',
+              base: '8px',
+              sm: '12px',
+              lg: '48px',
+              gutter: '24px',
+              'margin-mobile': '16px',
+            },
+            fontFamily: {
+              'headline-sm': ['Inter'],
+              'display-lg': ['Inter'],
+              'headline-md': ['Inter'],
+              'body-lg': ['Inter'],
+              'display-lg-mobile': ['Inter'],
+              'body-md': ['Inter'],
+              'label-mono': ['JetBrains Mono'],
+            },
+            fontSize: {
+              'headline-sm': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+              'display-lg': [
+                '48px',
+                { lineHeight: '56px', letterSpacing: '-0.02em', fontWeight: '700' },
+              ],
+              'headline-md': [
+                '32px',
+                { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '600' },
+              ],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'display-lg-mobile': [
+                '36px',
+                { lineHeight: '44px', letterSpacing: '-0.02em', fontWeight: '700' },
+              ],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'label-mono': [
+                '14px',
+                { lineHeight: '20px', letterSpacing: '0.05em', fontWeight: '500' },
+              ],
+            },
+          },
+        },
+      };
     </script>
-<style>
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-        .nav-link.active {
-            color: theme('colors.primary');
-            font-weight: 700;
-            border-bottom: 2px solid theme('colors.primary');
-        }
+    <style>
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+      }
+      .nav-link.active {
+        color: theme('colors.primary');
+        font-weight: 700;
+        border-bottom: 2px solid theme('colors.primary');
+      }
     </style>
-</head>
-<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
-<!-- Top Navigation -->
-<nav class="fixed top-0 w-full z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm transition-all duration-200 ease-in-out">
-<div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4">
-<a class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed" href="#intro">Aldo Guevara Muñoz</a>
-<div class="hidden md:flex items-center space-x-6 font-body-md text-body-md">
-<a class="nav-link active text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1" href="#intro">Intro</a>
-<a class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#about">About</a>
-<a class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#experience">Experience</a>
-<a class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#projects">Projects</a>
-<a class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#skills">Skills</a>
-<a class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#education">Education</a>
-</div>
-<a class="hidden md:inline-flex items-center justify-center px-4 py-2 bg-primary text-on-primary rounded-lg font-label-mono text-label-mono hover:bg-primary-container transition-colors shadow-sm" href="mailto:guevaraaldo44@gmail.com">
-                Get In Touch
-            </a>
-<!-- Mobile Menu Button (simplified for UI demonstration) -->
-<button class="md:hidden text-on-surface">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</nav>
-<!-- Main Content -->
-<main class="pt-[80px]">
-<!-- Hero Section -->
-<section class="relative min-h-[80vh] flex items-center justify-center px-gutter py-xl bg-surface-bright overflow-hidden" id="intro">
-<!-- Decorative Background Element -->
-<div class="absolute inset-0 pointer-events-none opacity-20">
-<div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-container rounded-full blur-[100px]"></div>
-<div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-tertiary-container rounded-full blur-[100px]"></div>
-</div>
-<div class="max-w-[1200px] mx-auto w-full relative z-10 text-center md:text-left flex flex-col md:flex-row items-center gap-lg">
-<div class="flex-1 space-y-6">
-<p class="font-label-mono text-label-mono text-primary uppercase tracking-widest">FullStack Developer Jr</p>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background">
-                        Aldo Guevara Muñoz
-                    </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                        Building robust, scalable applications with a focus on Angular, .NET, and SQL Server. Bridging the gap between complex backend logic and seamless user experiences.
-                    </p>
-<div class="flex gap-4 justify-center md:justify-start pt-4">
-<a class="px-6 py-3 bg-primary text-on-primary rounded-lg font-label-mono text-label-mono hover:shadow-lg transition-all" href="#projects">View Projects</a>
-<a class="px-6 py-3 border border-primary text-primary rounded-lg font-label-mono text-label-mono hover:bg-primary/5 transition-all" href="https://github.com" target="_blank">GitHub Profile</a>
-</div>
-</div>
-<div class="flex-1 hidden md:block">
-<div class="relative w-full aspect-square max-w-md mx-auto">
-<div class="absolute inset-0 bg-gradient-to-tr from-surface-container-high to-surface rounded-xl border border-outline-variant shadow-sm rotate-3 transform transition-transform hover:rotate-0 duration-300"></div>
-<img alt="Developer Representation" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-md border border-outline-variant" data-alt="A professional headshot or abstract representation of a developer working on code, bright clean lighting, high-contrast, deep blue accents, modern minimalist corporate aesthetic, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoiZpAGQnzIupKgni_GrOFiXry1Jarb4CMgXxGrWO1vLUclgYBKLMD5DLVWCXlWt5YUjJ_LvLdkH-BRVKEkdahlyJIkrL7ODajFZKX0zaxTbYj34Ngo8R6nUMnJfDEVwl04tCAlJN_ZN13dJRbOauAH27bQHe6DIaphziFjK6O44fDzZZCCLbp9pCrBjkSTxnLAQYH0rLoA0KzgRMYb8DiGDidu4APwwHHmCGStT5WnKSTISa8YUOz"/>
-</div>
-</div>
-</div>
-</section>
-<!-- About Section -->
-<section class="px-gutter py-xl bg-surface" id="about">
-<div class="max-w-[1200px] mx-auto">
-<div class="grid md:grid-cols-3 gap-lg">
-<div class="md:col-span-1">
-<h2 class="font-headline-md text-headline-md text-on-background mb-4">About Me</h2>
-<div class="h-1 w-12 bg-primary rounded-full mb-8"></div>
-</div>
-<div class="md:col-span-2 space-y-6">
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-                            I am a 26-year-old developer based in Juaréz, Nuevo León, specializing in building comprehensive ERP systems and web applications. My expertise lies in crafting efficient, scalable architectures using the Microsoft stack and modern frontend frameworks. I thrive in environments that challenge me to solve complex data management problems while delivering intuitive user interfaces.
-                        </p>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
-<span class="block font-label-mono text-label-mono text-secondary mb-1">Email</span>
-<a class="font-body-md text-body-md text-primary font-medium hover:underline" href="mailto:guevaraaldo44@gmail.com">guevaraaldo44@gmail.com</a>
-</div>
-<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
-<span class="block font-label-mono text-label-mono text-secondary mb-1">Location</span>
-<span class="font-body-md text-body-md text-on-background font-medium">Juaréz, Nuevo León</span>
-</div>
-<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
-<span class="block font-label-mono text-label-mono text-secondary mb-1">Phone</span>
-<span class="font-body-md text-body-md text-on-background font-medium">8126007542</span>
-</div>
-<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
-<span class="block font-label-mono text-label-mono text-secondary mb-1">Age</span>
-<span class="font-body-md text-body-md text-on-background font-medium">26</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Experience Section -->
-<section class="px-gutter py-xl bg-surface-bright" id="experience">
-<div class="max-w-[1200px] mx-auto">
-<h2 class="font-headline-md text-headline-md text-on-background mb-4">Experience</h2>
-<div class="h-1 w-12 bg-primary rounded-full mb-12"></div>
-<div class="relative border-l-2 border-surface-container-highest ml-3 md:ml-6 space-y-12">
-<!-- Experience Item 1 -->
-<div class="relative pl-8 md:pl-12">
-<div class="absolute w-4 h-4 bg-primary left-[-9px] top-1 rounded-sm shadow-[0_0_0_4px_theme(colors.surface-bright)]"></div>
-<div class="glass-card p-6 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-outline-variant">
-<div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-<h3 class="font-headline-sm text-headline-sm text-on-background">Frontend Developer</h3>
-<span class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono rounded-full text-sm whitespace-nowrap">Jul 2025 - Jan 2026</span>
-</div>
-<p class="font-body-md text-body-md text-primary font-medium mb-4">Grupo Vitek</p>
-<p class="font-body-md text-body-md text-on-surface-variant">
-                                Developed and maintained modules for an enterprise resource planning (ERP) system. Focused on building responsive, high-performance user interfaces using Angular and Tailwind CSS, while ensuring seamless integration with C# and SQL Server backends.
-                            </p>
-</div>
-</div>
-<!-- Experience Item 2 -->
-<div class="relative pl-8 md:pl-12">
-<div class="absolute w-4 h-4 bg-primary left-[-9px] top-1 rounded-sm shadow-[0_0_0_4px_theme(colors.surface-bright)]"></div>
-<div class="glass-card p-6 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-outline-variant">
-<div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-<h3 class="font-headline-sm text-headline-sm text-on-background">Web Developer</h3>
-<span class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono rounded-full text-sm whitespace-nowrap">Apr 2024 - Apr 2026</span>
-</div>
-<p class="font-body-md text-body-md text-primary font-medium mb-4">Vidas y Pensiones</p>
-<p class="font-body-md text-body-md text-on-surface-variant">
-                                Spearheaded the redesign of the main company website and developed internal tools, including complex pension simulators. Utilized PHP, JavaScript, and SQL to deliver robust, data-driven web applications that improved operational efficiency and user engagement.
-                            </p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Projects Section (Bento Grid) -->
-<section class="px-gutter py-xl bg-surface" id="projects">
-<div class="max-w-[1200px] mx-auto">
-<h2 class="font-headline-md text-headline-md text-on-background mb-4">Featured Projects</h2>
-<div class="h-1 w-12 bg-primary rounded-full mb-12"></div>
-<div class="bento-grid">
-<!-- Project Card 1 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-primary transition-colors shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-<div class="h-48 bg-surface-container-high relative overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A clean, modern user interface for a digital bookstore, showing rows of book covers on a bright white background with deep blue navigation elements, high contrast, minimal design, vector style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDmO2hpyRZ5df0Wgi-GFbMaQFqRCJcmT6yybKtkVfkF2_QSx5JU4OQqDDKnypp6H2oe80rmHAn1ygR_VoWkrx1bnAusznZnFHrkhcHzPAy8JVrgy9j-FAtbxPs-jWfh3eGaPglCX1uSawsoah2Bfv_E4aJ58en-MiRmKgav0d0O1vkhW2JSPTriEpXTpgpWDwLteFIZ7uY95QsfgB1u4KFEjAPjEX-arccdwIgFDWFMTT3se6bv7oA')"></div>
-</div>
-<div class="p-6 flex flex-col flex-grow">
-<h3 class="font-headline-sm text-headline-sm text-on-background mb-2">Guevara Librerías (Frontend)</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
-                                A modern, responsive e-commerce storefront for a bookstore, built with Angular and Tailwind CSS. Features intuitive navigation and a clean, accessible product catalog.
-                            </p>
-<div class="flex gap-2 mt-auto">
-<a class="px-4 py-2 bg-surface-container-high text-on-surface font-label-mono text-label-mono text-sm rounded hover:bg-surface-container transition-colors" href="#">GitHub</a>
-<a class="px-4 py-2 border border-primary text-primary font-label-mono text-label-mono text-sm rounded hover:bg-primary/5 transition-colors" href="#">Live Demo</a>
-</div>
-</div>
-</div>
-<!-- Project Card 2 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-primary transition-colors shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-<div class="h-48 bg-surface-container-high relative overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Abstract representation of an API backend architecture, showing glowing data nodes connecting in a network against a light gray background with deep blue glowing lines, technical, precise, modern." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCDIOCLFDZzXHAP1odgGU6eY4BgASVe2X-aP0rTnCEWU-xcBJw38oVXBIHQtUDmYHoj_9HCXudNWDb_WsZiDKwHzg20dJ24fZ1G0jU27J1wx8o1IKzdXFLdGJSRbtVeDUalKmelEOpUraxBEd5oNzAXszLgSD8TNqh4L_re6M0rWmrkWgdG3Q4pocXORpl9Q8Cq6ozmvq-4glloN7fUhKTNWrgYoPUejkDiAOGU0FiXtmvP9fnNvS6')"></div>
-</div>
-<div class="p-6 flex flex-col flex-grow">
-<h3 class="font-headline-sm text-headline-sm text-on-background mb-2">Guevara Librerías (API)</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
-                                Robust backend architecture powering the bookstore. Built with ASP.NET Core Web API, featuring secure JWT authentication and efficient data handling.
-                            </p>
-<div class="flex gap-2 mt-auto">
-<a class="px-4 py-2 bg-surface-container-high text-on-surface font-label-mono text-label-mono text-sm rounded hover:bg-surface-container transition-colors" href="#">GitHub</a>
-</div>
-</div>
-</div>
-<!-- Project Card 3 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-primary transition-colors shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-<div class="h-48 bg-surface-container-high relative overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A digital rendering of playing cards arranged on a clean white virtual table, modern minimalist style, high contrast lighting, deep blue shadows, clean vector aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBi8LQgAsuk-SclxDz0gqLgz9GfO8FGzkdNdMCcsQRHazXvnEhSen9-mKX1u0uJSevHMZ-7iyXu-77jlV11qFLF1usskzS2S4w6uZag_01sQzetgNLbQjcfPz3WqSM2PnZWhhhI6FOxVjpI8JjKIa140EXzZsaHs6bGgLWP-M3t-UkZw4NjiRWqshXmfwEpGb3oKPoDa5AkTYFnWS6P9FJVKIvDlGRtwTQK-bFeGavhhPJ5MUOwLtJy')"></div>
-</div>
-<div class="p-6 flex flex-col flex-grow">
-<h3 class="font-headline-sm text-headline-sm text-on-background mb-2">Blackjack</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
-                                A fully functional, interactive Blackjack card game built entirely with Angular. Demonstrates complex state management and responsive UI interactions.
-                            </p>
-<div class="flex gap-2 mt-auto">
-<a class="px-4 py-2 bg-surface-container-high text-on-surface font-label-mono text-label-mono text-sm rounded hover:bg-surface-container transition-colors" href="#">GitHub</a>
-<a class="px-4 py-2 border border-primary text-primary font-label-mono text-label-mono text-sm rounded hover:bg-primary/5 transition-colors" href="#">Live Demo</a>
-</div>
-</div>
-</div>
-<!-- Project Card 4 -->
-<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-primary transition-colors shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-<div class="h-48 bg-surface-container-high relative overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A clean, welcoming landing page interface for a veterinary clinic, featuring modern typography, ample whitespace, and subtle animal motifs in a professional light mode corporate style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-UH0zxGazco2T8gA4HIkI1kymCSPgpuQGqPLlZM7Hy_qnztuwn-BxUSxa5XQTB4_WSzL13u6KZSGQLEFOW0tjzzDDA04-gPmciV2fHNmeNVAegiUCgxqoztoR3pLqkotYchtdd-jk32FUff2UdmosRiP3sgRuhK_LQIis_4_6DIlS8Dc5yu9RGCu4akxYHubx58gyrZUGNZ4N9hYQo_gT3u4Sn0eVfCZyyz3xbHKDDuUWtrVIzKGZ')"></div>
-</div>
-<div class="p-6 flex flex-col flex-grow">
-<h3 class="font-headline-sm text-headline-sm text-on-background mb-2">PetCute</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
-                                A blazing-fast, static website for a veterinary clinic built with Astro. Focuses on SEO performance, optimal load times, and a clean, accessible design.
-                            </p>
-<div class="flex gap-2 mt-auto">
-<a class="px-4 py-2 bg-surface-container-high text-on-surface font-label-mono text-label-mono text-sm rounded hover:bg-surface-container transition-colors" href="#">GitHub</a>
-<a class="px-4 py-2 border border-primary text-primary font-label-mono text-label-mono text-sm rounded hover:bg-primary/5 transition-colors" href="#">Live Demo</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Skills Section -->
-<section class="px-gutter py-xl bg-surface-bright" id="skills">
-<div class="max-w-[1200px] mx-auto text-center">
-<h2 class="font-headline-md text-headline-md text-on-background mb-4">Technical Arsenal</h2>
-<div class="h-1 w-12 bg-primary rounded-full mx-auto mb-12"></div>
-<div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-<!-- Badges -->
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">Angular</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">TypeScript</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">JavaScript</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">HTML</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">CSS</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">Tailwind CSS</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">C#</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">ASP.NET Core</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">SQL Server</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">API REST</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">Git</span>
-<span class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant">Figma</span>
-</div>
-</div>
-</section>
-<!-- Education Section -->
-<section class="px-gutter py-xl bg-surface" id="education">
-<div class="max-w-[1200px] mx-auto text-center md:text-left">
-<div class="grid md:grid-cols-3 gap-lg items-center">
-<div class="md:col-span-1">
-<h2 class="font-headline-md text-headline-md text-on-background mb-4">Education</h2>
-<div class="h-1 w-12 bg-primary rounded-full mb-8 mx-auto md:mx-0"></div>
-</div>
-<div class="md:col-span-2">
-<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-sm flex flex-col md:flex-row items-center md:items-start justify-between gap-4">
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-background">Ingeniería en Sistemas Computacionales</h3>
-<p class="font-body-lg text-body-lg text-primary mt-2">Instituto Tecnológico de Nuevo León</p>
-</div>
-<span class="inline-block px-4 py-2 bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono rounded-full whitespace-nowrap">2018 - 2022</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full py-xl bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline transition-opacity duration-200">
-<div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-gutter gap-6">
-<div class="text-center md:text-left">
-<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed block mb-2">Aldo Guevara Muñoz</span>
-<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">© 2024 Aldo Guevara Muñoz. Built with precision.</p>
-</div>
-<div class="flex gap-6">
-<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors flex items-center gap-2" href="mailto:guevaraaldo44@gmail.com">
-<span class="material-symbols-outlined text-[20px]">mail</span>
-                    Email
-                </a>
-<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors flex items-center gap-2" href="#">
-<span class="material-symbols-outlined text-[20px]">link</span>
-                    LinkedIn
-                </a>
-<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors flex items-center gap-2" href="#">
-<span class="material-symbols-outlined text-[20px]">code</span>
-                    GitHub
-                </a>
-</div>
-</div>
-</footer>
-<!-- Simple Active Nav Script -->
-<script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- Top Navigation -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm transition-all duration-200 ease-in-out"
+    >
+      <div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4">
+        <a
+          class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed"
+          href="#intro"
+          >Aldo Guevara Muñoz</a
+        >
+        <div class="hidden md:flex items-center space-x-6 font-body-md text-body-md">
+          <a
+            class="nav-link active text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1"
+            href="#intro"
+            >Intro</a
+          >
+          <a
+            class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors"
+            href="#about"
+            >About</a
+          >
+          <a
+            class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors"
+            href="#experience"
+            >Experience</a
+          >
+          <a
+            class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors"
+            href="#projects"
+            >Projects</a
+          >
+          <a
+            class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors"
+            href="#skills"
+            >Skills</a
+          >
+          <a
+            class="nav-link text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors"
+            href="#education"
+            >Education</a
+          >
+        </div>
+        <a
+          class="hidden md:inline-flex items-center justify-center px-4 py-2 bg-primary text-on-primary rounded-lg font-label-mono text-label-mono hover:bg-primary-container transition-colors shadow-sm"
+          href="mailto:guevaraaldo44@gmail.com"
+        >
+          Get In Touch
+        </a>
+        <!-- Mobile Menu Button (simplified for UI demonstration) -->
+        <button class="md:hidden text-on-surface">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="pt-[80px]">
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-[80vh] flex items-center justify-center px-gutter py-xl bg-surface-bright overflow-hidden"
+        id="intro"
+      >
+        <!-- Decorative Background Element -->
+        <div class="absolute inset-0 pointer-events-none opacity-20">
+          <div
+            class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-container rounded-full blur-[100px]"
+          ></div>
+          <div
+            class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-tertiary-container rounded-full blur-[100px]"
+          ></div>
+        </div>
+        <div
+          class="max-w-[1200px] mx-auto w-full relative z-10 text-center md:text-left flex flex-col md:flex-row items-center gap-lg"
+        >
+          <div class="flex-1 space-y-6">
+            <p class="font-label-mono text-label-mono text-primary uppercase tracking-widest">
+              FullStack Developer Jr
+            </p>
+            <h1
+              class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background"
+            >
+              Aldo Guevara Muñoz
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+              Building robust, scalable applications with a focus on Angular, .NET, and SQL Server.
+              Bridging the gap between complex backend logic and seamless user experiences.
+            </p>
+            <div class="flex gap-4 justify-center md:justify-start pt-4">
+              <a
+                class="px-6 py-3 bg-primary text-on-primary rounded-lg font-label-mono text-label-mono hover:shadow-lg transition-all"
+                href="#projects"
+                >View Projects</a
+              >
+              <a
+                class="px-6 py-3 border border-primary text-primary rounded-lg font-label-mono text-label-mono hover:bg-primary/5 transition-all"
+                href="https://github.com"
+                target="_blank"
+                >GitHub Profile</a
+              >
+            </div>
+          </div>
+          <div class="flex-1 hidden md:block">
+            <div class="relative w-full aspect-square max-w-md mx-auto">
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-surface-container-high to-surface rounded-xl border border-outline-variant shadow-sm rotate-3 transform transition-transform hover:rotate-0 duration-300"
+              ></div>
+              <img
+                alt="Developer Representation"
+                class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-md border border-outline-variant"
+                data-alt="A professional headshot or abstract representation of a developer working on code, bright clean lighting, high-contrast, deep blue accents, modern minimalist corporate aesthetic, sharp focus."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoiZpAGQnzIupKgni_GrOFiXry1Jarb4CMgXxGrWO1vLUclgYBKLMD5DLVWCXlWt5YUjJ_LvLdkH-BRVKEkdahlyJIkrL7ODajFZKX0zaxTbYj34Ngo8R6nUMnJfDEVwl04tCAlJN_ZN13dJRbOauAH27bQHe6DIaphziFjK6O44fDzZZCCLbp9pCrBjkSTxnLAQYH0rLoA0KzgRMYb8DiGDidu4APwwHHmCGStT5WnKSTISa8YUOz"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section class="px-gutter py-xl bg-surface" id="about">
+        <div class="max-w-[1200px] mx-auto">
+          <div class="grid md:grid-cols-3 gap-lg">
+            <div class="md:col-span-1">
+              <h2 class="font-headline-md text-headline-md text-on-background mb-4">About Me</h2>
+              <div class="h-1 w-12 bg-primary rounded-full mb-8"></div>
+            </div>
+            <div class="md:col-span-2 space-y-6">
+              <p class="font-body-lg text-body-lg text-on-surface-variant">
+                I am a 26-year-old developer based in Juaréz, Nuevo León, specializing in building
+                comprehensive ERP systems and web applications. My expertise lies in crafting
+                efficient, scalable architectures using the Microsoft stack and modern frontend
+                frameworks. I thrive in environments that challenge me to solve complex data
+                management problems while delivering intuitive user interfaces.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                <div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+                  <span class="block font-label-mono text-label-mono text-secondary mb-1"
+                    >Email</span
+                  >
+                  <a
+                    class="font-body-md text-body-md text-primary font-medium hover:underline"
+                    href="mailto:guevaraaldo44@gmail.com"
+                    >guevaraaldo44@gmail.com</a
+                  >
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+                  <span class="block font-label-mono text-label-mono text-secondary mb-1"
+                    >Location</span
+                  >
+                  <span class="font-body-md text-body-md text-on-background font-medium"
+                    >Juaréz, Nuevo León</span
+                  >
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+                  <span class="block font-label-mono text-label-mono text-secondary mb-1"
+                    >Phone</span
+                  >
+                  <span class="font-body-md text-body-md text-on-background font-medium"
+                    >8126007542</span
+                  >
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+                  <span class="block font-label-mono text-label-mono text-secondary mb-1">Age</span>
+                  <span class="font-body-md text-body-md text-on-background font-medium">26</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Experience Section -->
+      <section class="px-gutter py-xl bg-surface-bright" id="experience">
+        <div class="max-w-[1200px] mx-auto">
+          <h2 class="font-headline-md text-headline-md text-on-background mb-4">Experience</h2>
+          <div class="h-1 w-12 bg-primary rounded-full mb-12"></div>
+          <div class="relative border-l-2 border-surface-container-highest ml-3 md:ml-6 space-y-12">
+            <!-- Experience Item 1 -->
+            <div class="relative pl-8 md:pl-12">
+              <div
+                class="absolute w-4 h-4 bg-primary left-[-9px] top-1 rounded-sm shadow-[0_0_0_4px_theme(colors.surface-bright)]"
+              ></div>
+              <div
+                class="glass-card p-6 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-outline-variant"
+              >
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                  <h3 class="font-headline-sm text-headline-sm text-on-background">
+                    Frontend Developer
+                  </h3>
+                  <span
+                    class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono rounded-full text-sm whitespace-nowrap"
+                    >Jul 2025 - Jan 2026</span
+                  >
+                </div>
+                <p class="font-body-md text-body-md text-primary font-medium mb-4">Grupo Vitek</p>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Developed and maintained modules for an enterprise resource planning (ERP) system.
+                  Focused on building responsive, high-performance user interfaces using Angular and
+                  Tailwind CSS, while ensuring seamless integration with C# and SQL Server backends.
+                </p>
+              </div>
+            </div>
+            <!-- Experience Item 2 -->
+            <div class="relative pl-8 md:pl-12">
+              <div
+                class="absolute w-4 h-4 bg-primary left-[-9px] top-1 rounded-sm shadow-[0_0_0_4px_theme(colors.surface-bright)]"
+              ></div>
+              <div
+                class="glass-card p-6 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-outline-variant"
+              >
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                  <h3 class="font-headline-sm text-headline-sm text-on-background">
+                    Web Developer
+                  </h3>
+                  <span
+                    class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono rounded-full text-sm whitespace-nowrap"
+                    >Apr 2024 - Apr 2026</span
+                  >
+                </div>
+                <p class="font-body-md text-body-md text-primary font-medium mb-4">
+                  Vidas y Pensiones
+                </p>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Spearheaded the redesign of the main company website and developed internal tools,
+                  including complex pension simulators. Utilized PHP, JavaScript, and SQL to deliver
+                  robust, data-driven web applications that improved operational efficiency and user
+                  engagement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Section (Bento Grid) -->
+      <section class="px-gutter py-xl bg-surface" id="projects">
+        <div class="max-w-[1200px] mx-auto">
+          <h2 class="font-headline-md text-headline-md text-on-background mb-4">
+            Featured Projects
+          </h2>
+          <div class="h-1 w-12 bg-primary rounded-full mb-12"></div>
+          <div class="bento-grid">
+            <!-- Project Card 1 -->
+            <div
+              class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-primary transition-colors shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+            >
+              <div class="h-48 bg-surface-container-high relative overflow-hidden">
+                <div
+                  class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                  data-alt="A clean, modern user interface for a digital bookstore, showing rows of book covers on a bright white background with deep blue navigation elements, high contrast, minimal design, vector style."
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDmO2hpyRZ5df0Wgi-GFbMaQFqRCJcmT6yybKtkVfkF2_QSx5JU4OQqDDKnypp6H2oe80rmHAn1ygR_VoWkrx1bnAusznZnFHrkhcHzPAy8JVrgy9j-FAtbxPs-jWfh3eGaPglCX1uSawsoah2Bfv_E4aJ58en-MiRmKgav0d0O1vkhW2JSPTriEpXTpgpWDwLteFIZ7uY95QsfgB1u4KFEjAPjEX-arccdwIgFDWFMTT3se6bv7oA');
+                  "
+                ></div>
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <h3 class="font-headline-sm text-headline-sm text-on-background mb-2">
+                  Guevara Librerías (Frontend)
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
+                  A modern, responsive e-commerce storefront for a bookstore, built with Angular and
+                  Tailwind CSS. Features intuitive navigation and a clean, accessible product
+                  catalog.
+                </p>
+                <div class="flex gap-2 mt-auto">
+                  <a
+                    class="px-4 py-2 bg-surface-container-high text-on-surface font-label-mono text-label-mono text-sm rounded hover:bg-surface-container transition-colors"
+                    href="#"
+                    >GitHub</a
+                  >
+                  <a
+                    class="px-4 py-2 border border-primary text-primary font-label-mono text-label-mono text-sm rounded hover:bg-primary/5 transition-colors"
+                    href="#"
+                    >Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Project Card 2 -->
+            <div
+              class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-primary transition-colors shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+            >
+              <div class="h-48 bg-surface-container-high relative overflow-hidden">
+                <div
+                  class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Abstract representation of an API backend architecture, showing glowing data nodes connecting in a network against a light gray background with deep blue glowing lines, technical, precise, modern."
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCDIOCLFDZzXHAP1odgGU6eY4BgASVe2X-aP0rTnCEWU-xcBJw38oVXBIHQtUDmYHoj_9HCXudNWDb_WsZiDKwHzg20dJ24fZ1G0jU27J1wx8o1IKzdXFLdGJSRbtVeDUalKmelEOpUraxBEd5oNzAXszLgSD8TNqh4L_re6M0rWmrkWgdG3Q4pocXORpl9Q8Cq6ozmvq-4glloN7fUhKTNWrgYoPUejkDiAOGU0FiXtmvP9fnNvS6');
+                  "
+                ></div>
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <h3 class="font-headline-sm text-headline-sm text-on-background mb-2">
+                  Guevara Librerías (API)
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
+                  Robust backend architecture powering the bookstore. Built with ASP.NET Core Web
+                  API, featuring secure JWT authentication and efficient data handling.
+                </p>
+                <div class="flex gap-2 mt-auto">
+                  <a
+                    class="px-4 py-2 bg-surface-container-high text-on-surface font-label-mono text-label-mono text-sm rounded hover:bg-surface-container transition-colors"
+                    href="#"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Project Card 3 -->
+            <div
+              class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-primary transition-colors shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+            >
+              <div class="h-48 bg-surface-container-high relative overflow-hidden">
+                <div
+                  class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                  data-alt="A digital rendering of playing cards arranged on a clean white virtual table, modern minimalist style, high contrast lighting, deep blue shadows, clean vector aesthetic."
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBi8LQgAsuk-SclxDz0gqLgz9GfO8FGzkdNdMCcsQRHazXvnEhSen9-mKX1u0uJSevHMZ-7iyXu-77jlV11qFLF1usskzS2S4w6uZag_01sQzetgNLbQjcfPz3WqSM2PnZWhhhI6FOxVjpI8JjKIa140EXzZsaHs6bGgLWP-M3t-UkZw4NjiRWqshXmfwEpGb3oKPoDa5AkTYFnWS6P9FJVKIvDlGRtwTQK-bFeGavhhPJ5MUOwLtJy');
+                  "
+                ></div>
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <h3 class="font-headline-sm text-headline-sm text-on-background mb-2">Blackjack</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
+                  A fully functional, interactive Blackjack card game built entirely with Angular.
+                  Demonstrates complex state management and responsive UI interactions.
+                </p>
+                <div class="flex gap-2 mt-auto">
+                  <a
+                    class="px-4 py-2 bg-surface-container-high text-on-surface font-label-mono text-label-mono text-sm rounded hover:bg-surface-container transition-colors"
+                    href="#"
+                    >GitHub</a
+                  >
+                  <a
+                    class="px-4 py-2 border border-primary text-primary font-label-mono text-label-mono text-sm rounded hover:bg-primary/5 transition-colors"
+                    href="#"
+                    >Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Project Card 4 -->
+            <div
+              class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col group hover:border-primary transition-colors shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+            >
+              <div class="h-48 bg-surface-container-high relative overflow-hidden">
+                <div
+                  class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                  data-alt="A clean, welcoming landing page interface for a veterinary clinic, featuring modern typography, ample whitespace, and subtle animal motifs in a professional light mode corporate style."
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-UH0zxGazco2T8gA4HIkI1kymCSPgpuQGqPLlZM7Hy_qnztuwn-BxUSxa5XQTB4_WSzL13u6KZSGQLEFOW0tjzzDDA04-gPmciV2fHNmeNVAegiUCgxqoztoR3pLqkotYchtdd-jk32FUff2UdmosRiP3sgRuhK_LQIis_4_6DIlS8Dc5yu9RGCu4akxYHubx58gyrZUGNZ4N9hYQo_gT3u4Sn0eVfCZyyz3xbHKDDuUWtrVIzKGZ');
+                  "
+                ></div>
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <h3 class="font-headline-sm text-headline-sm text-on-background mb-2">PetCute</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
+                  A blazing-fast, static website for a veterinary clinic built with Astro. Focuses
+                  on SEO performance, optimal load times, and a clean, accessible design.
+                </p>
+                <div class="flex gap-2 mt-auto">
+                  <a
+                    class="px-4 py-2 bg-surface-container-high text-on-surface font-label-mono text-label-mono text-sm rounded hover:bg-surface-container transition-colors"
+                    href="#"
+                    >GitHub</a
+                  >
+                  <a
+                    class="px-4 py-2 border border-primary text-primary font-label-mono text-label-mono text-sm rounded hover:bg-primary/5 transition-colors"
+                    href="#"
+                    >Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Skills Section -->
+      <section class="px-gutter py-xl bg-surface-bright" id="skills">
+        <div class="max-w-[1200px] mx-auto text-center">
+          <h2 class="font-headline-md text-headline-md text-on-background mb-4">
+            Technical Arsenal
+          </h2>
+          <div class="h-1 w-12 bg-primary rounded-full mx-auto mb-12"></div>
+          <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+            <!-- Badges -->
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >Angular</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >TypeScript</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >JavaScript</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >HTML</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >CSS</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >Tailwind CSS</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >C#</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >ASP.NET Core</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >SQL Server</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >API REST</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >Git</span
+            >
+            <span
+              class="px-4 py-2 bg-surface-container-high text-on-surface rounded-full font-label-mono text-label-mono border border-outline-variant"
+              >Figma</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- Education Section -->
+      <section class="px-gutter py-xl bg-surface" id="education">
+        <div class="max-w-[1200px] mx-auto text-center md:text-left">
+          <div class="grid md:grid-cols-3 gap-lg items-center">
+            <div class="md:col-span-1">
+              <h2 class="font-headline-md text-headline-md text-on-background mb-4">Education</h2>
+              <div class="h-1 w-12 bg-primary rounded-full mb-8 mx-auto md:mx-0"></div>
+            </div>
+            <div class="md:col-span-2">
+              <div
+                class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-sm flex flex-col md:flex-row items-center md:items-start justify-between gap-4"
+              >
+                <div>
+                  <h3 class="font-headline-sm text-headline-sm text-on-background">
+                    Ingeniería en Sistemas Computacionales
+                  </h3>
+                  <p class="font-body-lg text-body-lg text-primary mt-2">
+                    Instituto Tecnológico de Nuevo León
+                  </p>
+                </div>
+                <span
+                  class="inline-block px-4 py-2 bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono rounded-full whitespace-nowrap"
+                  >2018 - 2022</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full py-xl bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline transition-opacity duration-200"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-gutter gap-6"
+      >
+        <div class="text-center md:text-left">
+          <span
+            class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed block mb-2"
+            >Aldo Guevara Muñoz</span
+          >
+          <p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">
+            © 2024 Aldo Guevara Muñoz. Built with precision.
+          </p>
+        </div>
+        <div class="flex gap-6">
+          <a
+            class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors flex items-center gap-2"
+            href="mailto:guevaraaldo44@gmail.com"
+          >
+            <span class="material-symbols-outlined text-[20px]">mail</span>
+            Email
+          </a>
+          <a
+            class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors flex items-center gap-2"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-[20px]">link</span>
+            LinkedIn
+          </a>
+          <a
+            class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors flex items-center gap-2"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-[20px]">code</span>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- Simple Active Nav Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (scrollY >= (sectionTop - sectionHeight / 3)) {
-                        current = section.getAttribute('id');
-                    }
-                });
+        window.addEventListener('scroll', () => {
+          let current = '';
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - sectionHeight / 3) {
+              current = section.getAttribute('id');
+            }
+          });
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active', 'text-primary', 'dark:text-primary-fixed', 'font-bold', 'border-b-2', 'border-primary', 'dark:border-primary-fixed', 'pb-1');
-                    link.classList.add('text-secondary', 'dark:text-secondary-fixed-dim');
-                    if (link.getAttribute('href').substring(1) === current) {
-                        link.classList.remove('text-secondary', 'dark:text-secondary-fixed-dim');
-                        link.classList.add('active', 'text-primary', 'dark:text-primary-fixed', 'font-bold', 'border-b-2', 'border-primary', 'dark:border-primary-fixed', 'pb-1');
-                    }
-                });
-            });
+          navLinks.forEach((link) => {
+            link.classList.remove(
+              'active',
+              'text-primary',
+              'dark:text-primary-fixed',
+              'font-bold',
+              'border-b-2',
+              'border-primary',
+              'dark:border-primary-fixed',
+              'pb-1',
+            );
+            link.classList.add('text-secondary', 'dark:text-secondary-fixed-dim');
+            if (link.getAttribute('href').substring(1) === current) {
+              link.classList.remove('text-secondary', 'dark:text-secondary-fixed-dim');
+              link.classList.add(
+                'active',
+                'text-primary',
+                'dark:text-primary-fixed',
+                'font-bold',
+                'border-b-2',
+                'border-primary',
+                'dark:border-primary-fixed',
+                'pb-1',
+              );
+            }
+          });
         });
+      });
     </script>
-</body></html>
+  </body>
+</html>

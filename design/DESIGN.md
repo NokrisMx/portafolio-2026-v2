@@ -115,7 +115,7 @@ The design style is **Corporate / Modern** with a focus on high-contrast readabi
 
 ## Colors
 
-The palette is anchored by a commanding **Deep Blue**, used specifically for primary actions, branding, and emphasis. This is contrasted against a stark **Black/Dark Gray** for high-readability text and structural headers. 
+The palette is anchored by a commanding **Deep Blue**, used specifically for primary actions, branding, and emphasis. This is contrasted against a stark **Black/Dark Gray** for high-readability text and structural headers.
 
 - **Primary (#0047AB):** Used for CTA buttons, active states, and links.
 - **Secondary (#121212):** Used for headlines and body text to ensure maximum WCAG contrast.
@@ -132,7 +132,7 @@ The typography system relies on **Inter** for its systematic, utilitarian nature
 
 ## Layout & Spacing
 
-This design system uses a **Fixed Grid** model for desktop, centered within a maximum width of 1200px to prevent excessive line lengths. 
+This design system uses a **Fixed Grid** model for desktop, centered within a maximum width of 1200px to prevent excessive line lengths.
 
 - **Desktop (1024px+):** 12-column grid, 24px gutters, auto margins.
 - **Tablet (768px - 1023px):** 8-column grid, 24px gutters, 32px side margins.
@@ -142,7 +142,7 @@ Vertical spacing follows a strict 8px baseline rhythm. Use `lg` (48px) for secti
 
 ## Elevation & Depth
 
-To maintain a professional and clean aesthetic, depth is achieved through **Tonal Layers** and **Ambient Shadows**. 
+To maintain a professional and clean aesthetic, depth is achieved through **Tonal Layers** and **Ambient Shadows**.
 
 1. **Level 0 (Background):** Neutral Gray (#F8F9FA).
 2. **Level 1 (Cards/Containers):** White (#FFFFFF) with a subtle 1px border (#E5E7EB) or an ultra-diffused shadow.
@@ -160,18 +160,23 @@ The shape language uses **Rounded** (Level 2) corners. This medium-radius approa
 ## Components
 
 ### Buttons
+
 - **Primary:** Deep Blue background, White text. High-contrast, 0.5rem roundedness.
 - **Secondary:** Transparent background, 1px Deep Blue border, Deep Blue text.
 - **Ghost:** Transparent background, Dark Gray text, subtle gray background on hover.
 
 ### Cards
+
 - Used for project showcases. Features a pure white background, 1px light gray border, and 1rem rounded corners. On hover, the border color shifts to Deep Blue or the shadow deepens slightly.
 
 ### Chips (Skill Tags)
+
 - Small, pill-shaped elements using the `label-mono` type style. Light gray background (#F1F3F5) with Dark Gray text to keep them secondary to the main content.
 
 ### Inputs
+
 - Background: White; Border: 1px Gray (#D1D5DB). On focus, the border thickens to 2px and changes to Deep Blue with a soft blue outer glow.
 
 ### Lists
+
 - For experience and bullet points, use a custom Deep Blue square marker (4px x 4px) instead of standard circles to reinforce the "structured/grid" theme.

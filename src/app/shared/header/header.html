@@ -1,0 +1,69 @@
+<header
+  class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant shadow-sm transition-all duration-200 ease-in-out"
+>
+  <nav
+    class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4"
+    aria-label="Navegación principal"
+  >
+    <a
+      class="font-headline-sm text-headline-sm font-bold text-primary hover:opacity-90 transition-opacity"
+      href="#inicio"
+    >
+      {{ brandName }}
+    </a>
+
+    <div class="hidden md:flex items-center space-x-6">
+      @for (item of navItems; track item.id) {
+        <a [class]="linkClasses(item.id)" [href]="'#' + item.id">
+          {{ item.label }}
+        </a>
+      }
+    </div>
+
+    <a
+      class="hidden md:inline-flex items-center justify-center px-4 py-2 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:bg-primary-container transition-colors shadow-sm"
+      [href]="contactHref"
+    >
+      {{ contactLabel }}
+    </a>
+
+    <button
+      type="button"
+      class="md:hidden flex items-center justify-center p-2 text-on-surface hover:text-primary transition-colors"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+      aria-controls="mobile-menu"
+      (click)="toggleMenu()"
+    >
+      <span class="pi pi-bars text-xl" aria-hidden="true"></span>
+    </button>
+  </nav>
+
+  @if (menuOpen()) {
+    <div
+      class="fixed inset-0 z-40 bg-black/20 md:hidden"
+      aria-hidden="true"
+      (click)="closeMenu()"
+    ></div>
+
+    <div
+      id="mobile-menu"
+      class="absolute top-full left-0 w-full bg-surface border-b border-outline-variant shadow-md z-50 md:hidden"
+    >
+      <div class="flex flex-col max-w-[1200px] mx-auto px-gutter py-4 space-y-2">
+        @for (item of navItems; track item.id) {
+          <a [class]="mobileLinkClasses(item.id)" [href]="'#' + item.id" (click)="closeMenu()">
+            {{ item.label }}
+          </a>
+        }
+        <a
+          class="inline-flex items-center justify-center px-4 py-2 mt-2 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:bg-primary-container transition-colors shadow-sm"
+          [href]="contactHref"
+          (click)="closeMenu()"
+        >
+          {{ contactLabel }}
+        </a>
+      </div>
+    </div>
+  }
+</header>
