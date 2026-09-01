@@ -1,0 +1,52 @@
+<article
+  class="h-full bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden flex flex-col group hover:border-primary transition-colors shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+>
+  <div class="h-48 bg-surface-container-high relative overflow-hidden">
+    <img
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      [src]="toAbsoluteAssetPath(project().image)"
+      [alt]="project().nombre"
+    />
+  </div>
+
+  <div class="p-6 flex flex-col flex-grow">
+    <h3 class="font-headline-sm text-headline-sm text-on-background mb-2">
+      {{ project().nombre }}
+    </h3>
+
+    <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">
+      {{ project().descripcion }}
+    </p>
+
+    <div class="flex flex-wrap gap-2 mb-4">
+      @for (tech of project().tecnologias; track tech) {
+        <span
+          class="inline-block px-3 py-1 bg-surface-container-high text-on-surface font-label-mono text-label-mono border border-outline-variant rounded-full"
+        >
+          {{ tech }}
+        </span>
+      }
+    </div>
+
+    <div class="flex gap-2 mt-auto">
+      <a
+        class="px-4 py-2 bg-surface-container-high text-on-surface font-label-mono text-label-mono text-sm rounded-base hover:bg-surface-container transition-colors"
+        [href]="project().github"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+      @if (project().demo) {
+        <a
+          class="px-4 py-2 border border-primary text-primary font-label-mono text-label-mono text-sm rounded-base hover:bg-primary/5 transition-colors"
+          [href]="project().demo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver demo
+        </a>
+      }
+    </div>
+  </div>
+</article>

@@ -2,17 +2,17 @@ import { Component, computed, inject } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { PortfolioService } from '../shared/services/portfolio.service';
 import { Portfolio } from '../shared/models/portfolio.models';
-import { toAbsoluteAssetPath } from '../shared/utils/asset-path';
+import { ProjectCard } from './project-card/project-card';
 
-export const SECTION_TITLE = 'Experiencia';
+export const SECTION_TITLE = 'Proyectos';
 
 @Component({
-  imports: [],
-  selector: 'app-experience',
-  styleUrl: './experience.css',
-  templateUrl: './experience.html',
+  imports: [ProjectCard],
+  selector: 'app-projects',
+  styleUrl: './projects.css',
+  templateUrl: './projects.html',
 })
-export class Experience {
+export class Projects {
   readonly sectionTitle = SECTION_TITLE;
 
   private readonly portfolioService = inject(PortfolioService);
@@ -23,11 +23,9 @@ export class Experience {
 
   readonly isLoading = this.portfolio.isLoading;
   readonly error = this.portfolio.error;
-  readonly experiencia = computed(() => this.portfolio.value()?.experiencia ?? []);
+  readonly proyectos = computed(() => this.portfolio.value()?.proyectos ?? []);
 
   reload(): void {
     this.portfolio.reload();
   }
-
-  readonly toAbsoluteAssetPath = toAbsoluteAssetPath;
 }
