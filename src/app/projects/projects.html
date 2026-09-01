@@ -46,7 +46,7 @@
 
       <div class="grid gap-md grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
         @for (project of proyectos(); track $index) {
-          <app-project-card [project]="project" />
+          <app-project-card class="block h-full" [project]="project" />
         }
       </div>
     }
