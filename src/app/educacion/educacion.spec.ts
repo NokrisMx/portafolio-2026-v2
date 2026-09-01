@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject, throwError } from 'rxjs';
 import { Educacion, SECTION_TITLE } from './educacion';
 import { PortfolioService } from '../shared/services/portfolio.service';
 import { Portfolio } from '../shared/models/portfolio.models';
@@ -14,6 +14,94 @@ describe('Educacion', () => {
   it('renders section with id educacion', () => {
     const { compiled } = setup(() => of(mockPortfolio()));
     expect(compiled.querySelector('section#educacion')).toBeTruthy();
+  });
+
+  it('shows skeleton while loading', () => {
+    const { compiled } = setup(() => new Subject<Portfolio>().asObservable());
+    expect(compiled.querySelectorAll('.animate-pulse').length).toBeGreaterThan(0);
+  });
+
+  it('renders title and divider on success', () => {
+    const { compiled } = setup(() => of(mockPortfolio()));
+
+    const heading = compiled.querySelector('h2');
+    expect(heading?.textContent?.trim()).toBe(SECTION_TITLE);
+    expect(compiled.querySelector('.h-1.w-12.bg-primary')).toBeTruthy();
+  });
+
+  it('renders one card per education item in order with all fields', () => {
+    const portfolio = mockPortfolio();
+    const { compiled } = setup(() => of(portfolio));
+
+    const cards = compiled.querySelectorAll('.education-card');
+    expect(cards.length).toBe(portfolio.educacion.length);
+
+    for (let i = 0; i < portfolio.educacion.length; i++) {
+      const item = portfolio.educacion[i];
+      const card = cards[i];
+      expect(card.querySelector('h3')?.textContent?.trim()).toBe(item.titulo);
+      expect(card.textContent).toContain(item.institucion);
+      expect(card.textContent).toContain(item.descripcion);
+      expect(card.textContent).toContain(`${item.fechaInicio} – ${item.fechaFin}`);
+    }
+  });
+
+  it('does not render cards when educacion array is empty', () => {
+    const portfolio = { ...mockPortfolio(), educacion: [] };
+    const { compiled } = setup(() => of(portfolio));
+
+    expect(compiled.querySelectorAll('.education-card').length).toBe(0);
+  });
+
+  it('renders two education entries stacked in order', () => {
+    const portfolio = {
+      ...mockPortfolio(),
+      educacion: [
+        {
+          institucion: 'Universidad Nacional',
+          titulo: 'Licenciatura en Computación',
+          descripcion: 'Especialidad en Tecnologías Móviles (2020)',
+          fechaInicio: 'agosto 2018',
+          fechaFin: 'diciembre 2022',
+        },
+        {
+          institucion: 'Instituto Tecnológico',
+          titulo: 'Diplomado en Desarrollo Web',
+          descripcion: 'Frontend avanzado con Angular.',
+          fechaInicio: 'enero 2023',
+          fechaFin: 'junio 2023',
+        },
+      ],
+    };
+    const { compiled } = setup(() => of(portfolio));
+
+    const cards = compiled.querySelectorAll('.education-card');
+    expect(cards.length).toBe(2);
+
+    const titles = compiled.querySelectorAll('.education-card h3');
+    expect(titles[0].textContent?.trim()).toBe('Licenciatura en Computación');
+    expect(titles[1].textContent?.trim()).toBe('Diplomado en Desarrollo Web');
+
+    const contentColumn = compiled.querySelector('.md\\:col-span-2');
+    expect(contentColumn?.classList.contains('space-y-6')).toBe(true);
+  });
+
+  it('shows error message and retry button when fetch fails', () => {
+    const { compiled } = setup(() => throwError(() => new Error('API error')));
+
+    expect(compiled.textContent).toContain('No se pudo cargar la información');
+    const retryButton = compiled.querySelector<HTMLButtonElement>('button');
+    expect(retryButton?.textContent?.trim()).toBe('Reintentar');
+  });
+
+  it('reloads portfolio when retry button is clicked', async () => {
+    const { fixture, compiled } = setup(() => throwError(() => new Error('API error')));
+    const retryButton = compiled.querySelector<HTMLButtonElement>('button');
+
+    retryButton?.click();
+    await fixture.whenStable();
+
+    expect(portfolioService.getPortfolio).toHaveBeenCalledTimes(2);
   });
 
   function setup(serviceFactory: () => Observable<Portfolio>): {
@@ -48,6 +136,14 @@ function mockPortfolio(): Portfolio {
     experiencia: [],
     proyectos: [],
     habilidades: [],
-    educacion: [],
+    educacion: [
+      {
+        institucion: 'Universidad Politécnica de la Región Ribereña',
+        titulo: 'Ingeniería en Sistemas Computacionales',
+        descripcion: 'Especialidad en Tecnologías Móviles (2020)',
+        fechaInicio: 'agosto 2018',
+        fechaFin: 'diciembre 2022',
+      },
+    ],
   };
 }
