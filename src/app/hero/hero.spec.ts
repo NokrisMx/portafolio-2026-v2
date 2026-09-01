@@ -71,7 +71,10 @@ describe('Hero', () => {
     expect(portfolioService.getPortfolio).toHaveBeenCalledTimes(2);
   });
 
-  function setup(serviceFactory: () => Observable<Portfolio>): { fixture: ComponentFixture<Hero>; compiled: HTMLElement } {
+  function setup(serviceFactory: () => Observable<Portfolio>): {
+    fixture: ComponentFixture<Hero>;
+    compiled: HTMLElement;
+  } {
     portfolioService.getPortfolio = vi.fn(serviceFactory);
 
     TestBed.configureTestingModule({

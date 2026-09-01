@@ -18,7 +18,7 @@ export class PortfolioService {
           throw new Error('La respuesta de la API está vacía');
         }
         return items[0];
-      })
+      }),
     );
   }
 }
