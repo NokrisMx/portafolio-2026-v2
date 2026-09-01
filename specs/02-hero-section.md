@@ -1,6 +1,6 @@
 # SPEC 02 — Sección Hero (Intro) del portafolio
 
-> **Status:** Approved
+> **Status:** Implementado
 > **Depends on:** SPEC 01
 > **Date:** 2026-08-31
 > **Objective:** Implementar la sección hero (Inicio) del portafolio como componente standalone que consume la mock API a través de un `PortfolioService` compartido, replicando el diseño de `design/code.html` con `about.foto` (profile.png) en la tarjeta visual derecha.
@@ -112,18 +112,18 @@ Constantes del hero (no vienen en el API): `ROLE_LABEL = 'FullStack Developer Jr
 
 ## Acceptance criteria
 
-- [ ] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
-- [ ] `ng test --watch=false` pasa en verde (specs de App, Header, Hero y PortfolioService).
-- [ ] La sección renderiza con `id="inicio"` y el link "Inicio" del header la activa al estar en ella.
-- [ ] El `h1` muestra `about.nombreCompleto` y el párrafo `about.descripcion`, ambos traídos de la mock API (no hardcodeados).
-- [ ] La etiqueta superior muestra "FullStack Developer Jr" en `label-mono`, `text-primary` y uppercase.
-- [ ] El botón primario "Ver proyectos" apunta a `#proyectos`.
-- [ ] El botón secundario "GitHub" apunta a `https://github.com/NokrisMx` con `target="_blank"` y `rel="noopener noreferrer"`.
-- [ ] La imagen derecha usa `[src]` desde `about.foto` (`/assets/images/profile.png`), con `alt` que incluye el nombre, y está oculta en viewport < 768px.
-- [ ] Mientras carga se ve el skeleton; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
-- [ ] La petición va al endpoint documentado y el servicio entrega el primer elemento del arreglo (arreglo vacío → estado error).
-- [ ] No hay clases `dark:` ni `tailwind.config.js`; los radios siguen `DESIGN.md` (botones `rounded-base`, tarjeta `rounded-lg`).
-- [ ] El texto visible está en español (excepto "GitHub").
+- [x] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
+- [x] `ng test --watch=false` pasa en verde (specs de App, Header, Hero y PortfolioService).
+- [x] La sección renderiza con `id="inicio"` y el link "Inicio" del header la activa al estar en ella.
+- [x] El `h1` muestra `about.nombreCompleto` y el párrafo `about.descripcion`, ambos traídos de la mock API (no hardcodeados).
+- [x] La etiqueta superior muestra "FullStack Developer Jr" en `label-mono`, `text-primary` y uppercase.
+- [x] El botón primario "Ver proyectos" apunta a `#proyectos`.
+- [x] El botón secundario "GitHub" apunta a `https://github.com/NokrisMx` con `target="_blank"` y `rel="noopener noreferrer"`.
+- [x] La imagen derecha usa `[src]` desde `about.foto` (`/assets/images/profile.png`), con `alt` que incluye el nombre, y está oculta en viewport < 768px.
+- [x] Mientras carga se ve el skeleton; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
+- [x] La petición va al endpoint documentado y el servicio entrega el primer elemento del arreglo (arreglo vacío → estado error).
+- [x] No hay clases `dark:` ni `tailwind.config.js`; los radios siguen `DESIGN.md` (botones `rounded-base`, tarjeta `rounded-lg`).
+- [x] El texto visible está en español (excepto "GitHub").
 
 ## Decisions
 

@@ -61,18 +61,18 @@ export const LINKEDIN_URL = 'https://www.linkedin.com/in/aldo-guevara-mu%C3%B1oz
 
 ## Acceptance criteria
 
-- [ ] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
-- [ ] `ng test --watch=false` pasa en verde (specs existentes + Footer; `hero.spec.ts` actualizada al import de shared sigue pasando).
-- [ ] El footer renderiza tras `</main>`, al final de la página, con fondo `surface-container-highest` y `border-t border-outline-variant`, sin clases `dark:`.
-- [ ] El nombre y el email provienen de la mock API (`about.nombreCompleto`, `about.email`), no hardcodeados.
-- [ ] El link Email usa `mailto:{about.email}`; LinkedIn y GitHub usan las constantes de `portfolio-links.ts` con `target="_blank"` y `rel="noopener noreferrer"`.
-- [ ] La línea de copyright muestra "© {año actual} {nombreCompleto}. Construido con precisión." con el año calculado en runtime.
-- [ ] Los iconos son PrimeIcons `pi pi-envelope`, `pi pi-linkedin`, `pi pi-github` (`text-xl`, `aria-hidden="true"`).
-- [ ] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
-- [ ] `hero.ts` ya no declara `GITHUB_URL`: la importa de `shared/constants/portfolio-links.ts` con el mismo valor.
-- [ ] El contenedor usa `max-w-300 mx-auto px-gutter`, apilado (`flex-col`) en móvil y `md:flex-row` en desktop.
-- [ ] El texto visible está en español (excepto "Email", "LinkedIn", "GitHub") y los identificadores del código en inglés.
-- [ ] `footer.css` queda vacío o mínimo (estilos con utilidades Tailwind en la plantilla).
+- [x] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
+- [x] `ng test --watch=false` pasa en verde (specs existentes + Footer; `hero.spec.ts` actualizada al import de shared sigue pasando).
+- [x] El footer renderiza tras `</main>`, al final de la página, con fondo `surface-container-highest` y `border-t border-outline-variant`, sin clases `dark:`.
+- [x] El nombre y el email provienen de la mock API (`about.nombreCompleto`, `about.email`), no hardcodeados.
+- [x] El link Email usa `mailto:{about.email}`; LinkedIn y GitHub usan las constantes de `portfolio-links.ts` con `target="_blank"` y `rel="noopener noreferrer"`.
+- [x] La línea de copyright muestra "© {año actual} {nombreCompleto}. Construido con precisión." con el año calculado en runtime.
+- [x] Los iconos son PrimeIcons `pi pi-envelope`, `pi pi-linkedin`, `pi pi-github` (`text-xl`, `aria-hidden="true"`).
+- [x] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
+- [x] `hero.ts` ya no declara `GITHUB_URL`: la importa de `shared/constants/portfolio-links.ts` con el mismo valor.
+- [x] El contenedor usa `max-w-300 mx-auto px-gutter`, apilado (`flex-col`) en móvil y `md:flex-row` en desktop.
+- [x] El texto visible está en español (excepto "Email", "LinkedIn", "GitHub") y los identificadores del código en inglés.
+- [x] `footer.css` queda vacío o mínimo (estilos con utilidades Tailwind en la plantilla).
 
 ## Decisions
 
