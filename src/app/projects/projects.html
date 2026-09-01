@@ -1,6 +1,54 @@
 <section class="bg-surface px-gutter py-xl" id="proyectos">
   <div class="max-w-300 mx-auto">
-    <h2 class="font-headline-md text-headline-md text-on-background mb-4">Proyectos</h2>
-    <div class="h-1 w-12 bg-primary rounded-full mb-12"></div>
+    @if (isLoading()) {
+      <div class="space-y-12">
+        <div class="space-y-4">
+          <div class="h-8 w-48 bg-surface-container rounded-base animate-pulse"></div>
+          <div class="h-1 w-12 bg-surface-container rounded-full"></div>
+        </div>
+        <div class="grid gap-md grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
+          @for (_ of [1, 2, 3, 4]; track $index) {
+            <div
+              class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden flex flex-col animate-pulse"
+            >
+              <div class="h-48 bg-surface-container"></div>
+              <div class="p-6 flex flex-col flex-grow space-y-4">
+                <div class="h-6 w-3/4 bg-surface-container rounded-base"></div>
+                <div class="h-4 w-full bg-surface-container rounded-base"></div>
+                <div class="h-4 w-2/3 bg-surface-container rounded-base"></div>
+                <div class="flex gap-2 mt-auto">
+                  <div class="h-9 w-24 bg-surface-container rounded-base"></div>
+                  <div class="h-9 w-24 bg-surface-container rounded-base"></div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    } @else if (error()) {
+      <div class="text-center">
+        <p class="font-body-lg text-body-lg text-error mb-4">
+          No se pudo cargar la información. Intenta de nuevo.
+        </p>
+        <button
+          class="px-6 py-3 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:shadow-lg transition-all"
+          type="button"
+          (click)="reload()"
+        >
+          Reintentar
+        </button>
+      </div>
+    } @else {
+      <h2 class="font-headline-md text-headline-md text-on-background mb-4">
+        {{ sectionTitle }}
+      </h2>
+      <div class="h-1 w-12 bg-primary rounded-full mb-12"></div>
+
+      <div class="grid gap-md grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
+        @for (project of proyectos(); track $index) {
+          <app-project-card [project]="project" />
+        }
+      </div>
+    }
   </div>
 </section>
