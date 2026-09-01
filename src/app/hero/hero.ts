@@ -2,9 +2,9 @@ import { Component, computed, inject } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { PortfolioService } from '../shared/services/portfolio.service';
 import { Portfolio } from '../shared/models/portfolio.models';
+import { GITHUB_URL } from '../shared/constants/portfolio-links';
 
 export const ROLE_LABEL = 'FullStack Developer Jr';
-export const GITHUB_URL = 'https://github.com/NokrisMx';
 
 @Component({
   imports: [],

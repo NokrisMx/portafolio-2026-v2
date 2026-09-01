@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Observable, of, Subject, throwError } from 'rxjs';
-import { Hero, GITHUB_URL, ROLE_LABEL } from './hero';
+import { Hero, ROLE_LABEL } from './hero';
+import { GITHUB_URL } from '../shared/constants/portfolio-links';
 import { PortfolioService } from '../shared/services/portfolio.service';
 import { Portfolio } from '../shared/models/portfolio.models';
 
