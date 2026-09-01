@@ -31,7 +31,9 @@ describe('ProjectCard', () => {
     const project = mockProject();
     const { compiled } = setup(project);
 
-    const githubLink = compiled.querySelector<HTMLAnchorElement>('a[href="' + project.github + '"]');
+    const githubLink = compiled.querySelector<HTMLAnchorElement>(
+      'a[href="' + project.github + '"]',
+    );
     expect(githubLink).toBeTruthy();
     expect(githubLink?.getAttribute('target')).toBe('_blank');
     expect(githubLink?.getAttribute('rel')).toBe('noopener noreferrer');

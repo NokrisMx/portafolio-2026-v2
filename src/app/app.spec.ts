@@ -47,6 +47,17 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('app-experience')).toBeTruthy();
   });
+
+  it('should render the projects section after experience', () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-projects')).toBeTruthy();
+
+    const experience = compiled.querySelector('app-experience');
+    const projects = compiled.querySelector('app-projects');
+    expect(experience?.compareDocumentPosition(projects!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+  });
 });
 
 function mockPortfolio(): Portfolio {
