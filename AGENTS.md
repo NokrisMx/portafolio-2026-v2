@@ -34,44 +34,69 @@ testeada con Vitest. El contenido se consume de una mock API externa documentada
 ## Iconos
 
 - Usa PrimeIcons (`primeicons@^8`) para todos los iconos: clases `pi pi-*`.
-- El CSS se importa en `src/styles.css`: `@import 'primeicons/primeicons.css';`
-  (aún no está cableado).
+- El CSS se importa en `src/styles.css`: `@import 'primeicons/primeicons.css';`.
 - Los valores de `icono` del API (p. ej. `Typescript01Icon`) NO son nombres de
   PrimeIcons: mapea esos nombres a las clases `pi pi-*` correspondientes en el código.
 
 ## Contrato de datos
 
-- `design/portfolio-api.md` documenta la mock API externa (endpoint, forma de la
-  respuesta, ejemplo) y es la fuente de verdad al modelar interfaces/servicios.
-  Los campos están en español (`nombreCompleto`, `experiencia`, `proyectos`,
+- `design/portfolio-api.md` es la fuente de verdad del endpoint, la forma de la
+  respuesta y el ejemplo.
+- Los campos están en español (`nombreCompleto`, `experiencia`, `proyectos`,
   `habilidades`, `educacion`) y la respuesta es un arreglo JSON.
+- El fetch se centraliza en `src/app/shared/services/portfolio.service.ts`, que obtiene
+  el arreglo y devuelve el primer elemento.
 
 ## Assets estáticos
 
 - `public/` se sirve en la raíz del sitio (`public/foo.png` → `/foo.png`). Las rutas
   del API tipo `/assets/images/...` por tanto van en `public/assets/...` (no `src/assets`).
+- Ya existen imágenes de proyectos y el CV en `public/assets/`.
+- Usa `toAbsoluteAssetPath()` en `src/app/shared/utils/asset-path.ts` para normalizar
+  rutas relativas del API a rutas absolutas.
+
+## Estructura del código
+
+```
+src/app/
+├── app.ts / app.html              # shell de la aplicación
+├── app.routes.ts                  # rutas vacías (app de una sola página)
+├── app.config.ts                  # providers: HttpClient, Router
+├── hero/                          # sección Hero
+├── about/                         # sección About
+├── experience/                    # sección Experiencia
+├── projects/                      # sección Proyectos
+│   └── project-card/              # card de proyecto
+├── skills/                        # sección Habilidades
+├── educacion/                     # sección Educación
+└── shared/                        # componentes y lógica transversal
+    ├── chip/                      # chip reutilizable
+    ├── header/                    # navegación
+    ├── footer/                    # pie de página
+    ├── services/                  # PortfolioService
+    ├── models/                    # tipos del contrato de datos
+    ├── constants/                 # enlaces externos (GitHub, LinkedIn)
+    └── utils/                     # helpers (asset-path)
+```
 
 ## Convenciones Angular
 
-- Angular 22 zoneless (sin zone.js): usa signals para el estado de los componentes,
-  como en `src/app/app.ts`.
-- Nomenclatura moderna del CLI: `foo.ts`/`foo.html`/`foo.css` con `styleUrl`/`templateUrl`,
+- Angular 22 zoneless (sin zone.js): usa signals para el estado de los componentes;
+  las secciones del portafolio siguen este patrón.
+- Nomenclatura moderna del CLI: `foo.ts`/`foo.html` con `templateUrl`,
   nombres de clase sin sufijo `Component`, prefijo de selector `app`.
+- No se usan archivos `*.css` de componente: los estilos se aplican con utilidades
+  Tailwind directamente en la plantilla, respetando los presupuestos de build.
 - Rutas en `src/app/app.routes.ts`; providers en `src/app/app.config.ts`.
 - Los specs usan los globals de Vitest (`describe`/`it`/`expect` sin imports, vía
   `tsconfig.spec.json`) y corren en jsdom — no requieren navegador.
 
 ## Componentes reutilizables
 
-- Piensa en reutilización antes de duplicar markup: extrae como componentes standalone
-  las piezas que se repiten entre secciones. Los componentes del design system en
-  `design/DESIGN.md` (botones, cards, chips, inputs, listas) son los candidatos
-  naturales (p. ej. la card de `proyectos`, los chips de `habilidades`).
+- Los componentes del design system ya implementados son: `Chip`, `Header`, `Footer`
+  y `ProjectCard`. Para UI nueva, piensa en reutilización antes de duplicar markup.
 - Componentes presentacionales: datos vía `input()` y eventos vía `output()` (signals);
   el fetch de la mock API y la lógica quedan en servicios.
-- Estructura: lo transversal/reutilizable en `src/app/shared/`; cada sección del
-  portafolio (about, experiencia, proyectos, habilidades, educacion) en su propia
-  carpeta bajo `src/app/`.
 
 ## Código limpio
 
@@ -93,5 +118,9 @@ testeada con Vitest. El contenido se consume de una mock API externa documentada
   - Usa la skill relevante según la tarea: `angular-developer`, `tailwind-css-patterns`,
     `vitest`, `typescript-advanced-types`, `frontend-design`, `seo`, `accessibility`,
     entre otras.
+- Flujo de specs de sección: el directorio `specs/` contiene specs numeradas
+  (`01-header-nav.md`, `02-hero-section.md`, ..., `08-footer-section.md`) y un archivo
+  de configuración `.spec-config.yml` con `AutoCreateBranch: true`, que hace que
+  `spec-impl` cree y use automáticamente la rama `spec-NN-slug`.
 - Usa el MCP Context7 para consultar documentación actualizada de librerías (Angular,
   Tailwind, PrimeIcons, Vitest...) cuando haya dudas de API o sintaxis.
