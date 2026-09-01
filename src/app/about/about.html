@@ -36,36 +36,46 @@
     } @else {
       <div class="grid md:grid-cols-3 gap-lg">
         <div class="md:col-span-1">
-          <h2 class="headline-md text-on-background mb-4">{{ sectionTitle }}</h2>
+          <h2 class="font-headline-md text-headline-md text-on-background mb-4">
+            {{ sectionTitle }}
+          </h2>
           <div class="h-1 w-12 bg-primary rounded-full"></div>
         </div>
         <div class="md:col-span-2 space-y-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="bg-surface-container-low p-4 rounded-base border border-outline-variant">
-              <span class="label-mono text-secondary block mb-1">Correo</span>
+              <span class="font-label-mono text-label-mono text-secondary block mb-1">Correo</span>
               <a
-                class="body-md text-primary font-medium hover:underline"
+                class="font-body-md text-body-md text-primary font-medium hover:underline"
                 [href]="'mailto:' + about()?.email"
               >
                 {{ about()?.email }}
               </a>
             </div>
             <div class="bg-surface-container-low p-4 rounded-base border border-outline-variant">
-              <span class="label-mono text-secondary block mb-1">Ubicación</span>
-              <span class="body-md text-on-background font-medium">{{ about()?.ubicacion }}</span>
+              <span class="font-label-mono text-label-mono text-secondary block mb-1"
+                >Ubicación</span
+              >
+              <span class="font-body-md text-body-md text-on-background font-medium">{{
+                about()?.ubicacion
+              }}</span>
             </div>
             <div class="bg-surface-container-low p-4 rounded-base border border-outline-variant">
-              <span class="label-mono text-secondary block mb-1">Teléfono</span>
+              <span class="font-label-mono text-label-mono text-secondary block mb-1"
+                >Teléfono</span
+              >
               <a
-                class="body-md text-primary font-medium hover:underline"
+                class="font-body-md text-body-md text-primary font-medium hover:underline"
                 [href]="'tel:' + about()?.telefono"
               >
                 {{ about()?.telefono }}
               </a>
             </div>
             <div class="bg-surface-container-low p-4 rounded-base border border-outline-variant">
-              <span class="label-mono text-secondary block mb-1">Edad</span>
-              <span class="body-md text-on-background font-medium">{{ about()?.edad }}</span>
+              <span class="font-label-mono text-label-mono text-secondary block mb-1">Edad</span>
+              <span class="font-body-md text-body-md text-on-background font-medium">{{
+                about()?.edad
+              }}</span>
             </div>
           </div>
           <a
