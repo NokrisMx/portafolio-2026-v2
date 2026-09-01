@@ -7,7 +7,6 @@ export const SECTION_TITLE = 'Educación';
 
 @Component({
   selector: 'app-educacion',
-  styleUrl: './educacion.css',
   templateUrl: './educacion.html',
 })
 export class Educacion {

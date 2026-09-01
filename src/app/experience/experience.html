@@ -1,90 +1,77 @@
 <section class="bg-surface-bright px-gutter py-xl" id="experiencia">
   <div class="max-w-300 mx-auto">
     @if (isLoading()) {
-      <div class="space-y-12">
-        <div class="space-y-4">
-          <div class="h-8 w-48 bg-surface-container rounded-base animate-pulse"></div>
-          <div class="h-1 w-12 bg-surface-container rounded-full"></div>
-        </div>
-        <div class="relative border-l-2 border-surface-container-highest ml-3 md:ml-6 space-y-12">
-          @for (_ of [1, 2]; track $index) {
-            <div class="relative pl-8 md:pl-12">
-              <div
-                class="absolute w-4 h-4 bg-surface-container rounded-sm left-[-9px] top-1 shadow-[0_0_0_4px_var(--color-surface-bright)] animate-pulse"
-              ></div>
-              <div
-                class="bg-surface-container p-6 rounded-lg border border-outline-variant animate-pulse h-40"
-              ></div>
-            </div>
-          }
-        </div>
+    <div class="space-y-12">
+      <div class="space-y-4">
+        <div class="h-8 w-48 bg-surface-container rounded-base animate-pulse"></div>
+        <div class="h-1 w-12 bg-surface-container rounded-full"></div>
       </div>
-    } @else if (error()) {
-      <div class="text-center">
-        <p class="font-body-lg text-body-lg text-error mb-4">
-          No se pudo cargar la información. Intenta de nuevo.
-        </p>
-        <button
-          class="px-6 py-3 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:shadow-lg transition-all"
-          type="button"
-          (click)="reload()"
-        >
-          Reintentar
-        </button>
-      </div>
-    } @else {
-      <h2 class="font-headline-md text-headline-md text-on-background mb-4">
-        {{ sectionTitle }}
-      </h2>
-      <div class="h-1 w-12 bg-primary rounded-full mb-12"></div>
-
       <div class="relative border-l-2 border-surface-container-highest ml-3 md:ml-6 space-y-12">
-        @for (item of experiencia(); track item.empresa) {
-          <div class="relative pl-8 md:pl-12">
-            <div
-              class="absolute w-4 h-4 bg-primary rounded-sm left-[-9px] top-1 shadow-[0_0_0_4px_var(--color-surface-bright)]"
-            ></div>
-            <div
-              class="bg-white/80 backdrop-blur-md border border-outline-variant rounded-lg p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
-            >
-              <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                <h3 class="font-headline-sm text-headline-sm text-on-background">
-                  {{ item.puesto }}
-                </h3>
-                <span
-                  class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono rounded-full whitespace-nowrap"
-                >
-                  {{ item.fechaInicio }} – {{ item.fechaFin }}
-                </span>
-              </div>
-
-              <a
-                class="inline-flex items-center gap-2 text-primary font-medium mb-4 hover:underline"
-                [href]="item.url"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  class="h-8 w-auto object-contain"
-                  [src]="toAbsoluteAssetPath(item.logo)"
-                  [alt]="'Logo de ' + item.empresa"
-                />
-                <span class="font-body-md text-body-md">{{ item.empresa }}</span>
-              </a>
-
-              <p class="font-body-md text-body-md text-on-surface-variant mb-4">
-                {{ item.descripcion }}
-              </p>
-
-              <div class="flex flex-wrap gap-2">
-                @for (skill of item.habilidades; track skill) {
-                  <app-chip [label]="skill" />
-                }
-              </div>
-            </div>
+        @for (_ of [1, 2]; track $index) {
+        <div class="relative pl-8 md:pl-12">
+          <div
+            class="absolute w-4 h-4 bg-surface-container rounded-sm -left-2.25 top-1 shadow-[0_0_0_4px_var(--color-surface-bright)] animate-pulse">
           </div>
+          <div class="bg-surface-container p-6 rounded-lg border border-outline-variant animate-pulse h-40"></div>
+        </div>
         }
       </div>
+    </div>
+    } @else if (error()) {
+    <div class="text-center">
+      <p class="font-body-lg text-body-lg text-error mb-4">
+        No se pudo cargar la información. Intenta de nuevo.
+      </p>
+      <button
+        class="px-6 py-3 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:shadow-lg transition-all"
+        type="button" (click)="reload()">
+        Reintentar
+      </button>
+    </div>
+    } @else {
+    <h2 class="font-headline-md text-headline-md text-on-background mb-4">
+      {{ sectionTitle }}
+    </h2>
+    <div class="h-1 w-12 bg-primary rounded-full mb-12"></div>
+
+    <div class="relative border-l-2 border-surface-container-highest ml-3 md:ml-6 space-y-12">
+      @for (item of experiencia(); track item.empresa) {
+      <div class="relative pl-8 md:pl-12">
+        <div
+          class="absolute w-4 h-4 bg-primary rounded-sm -left-2.25 top-1 shadow-[0_0_0_4px_var(--color-surface-bright)]">
+        </div>
+        <div
+          class="bg-white/80 backdrop-blur-md border border-outline-variant rounded-lg p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+            <h3 class="font-headline-sm text-headline-sm text-on-background">
+              {{ item.puesto }}
+            </h3>
+            <span
+              class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono rounded-full whitespace-nowrap">
+              {{ item.fechaInicio }} – {{ item.fechaFin }}
+            </span>
+          </div>
+
+          <a class="inline-flex items-center gap-2 text-primary font-medium mb-4 hover:underline" [href]="item.url"
+            target="_blank" rel="noopener noreferrer">
+            <img class="h-8 w-auto object-contain" [src]="toAbsoluteAssetPath(item.logo)"
+              [alt]="'Logo de ' + item.empresa" />
+            <span class="font-body-md text-body-md">{{ item.empresa }}</span>
+          </a>
+
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4">
+            {{ item.descripcion }}
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            @for (skill of item.habilidades; track skill) {
+            <app-chip [label]="skill" />
+            }
+          </div>
+        </div>
+      </div>
+      }
+    </div>
     }
   </div>
 </section>
