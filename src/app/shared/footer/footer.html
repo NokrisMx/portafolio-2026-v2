@@ -1,0 +1,71 @@
+<footer class="w-full py-xl bg-surface-container-highest border-t border-outline-variant">
+  <div
+    class="flex flex-col md:flex-row justify-between items-center max-w-300 mx-auto px-gutter gap-6"
+  >
+    @if (isLoading()) {
+      <div
+        class="w-full flex flex-col md:flex-row justify-between items-center gap-6 animate-pulse"
+      >
+        <div class="text-center md:text-left space-y-2">
+          <div class="h-7 w-48 bg-surface-container rounded-base"></div>
+          <div class="h-5 w-64 bg-surface-container rounded-base"></div>
+        </div>
+        <div class="flex gap-6">
+          @for (item of [1, 2, 3]; track item) {
+            <div class="h-5 w-20 bg-surface-container rounded-base"></div>
+          }
+        </div>
+      </div>
+    } @else if (error()) {
+      <div class="text-center">
+        <p class="text-body-md text-error mb-4">
+          No se pudo cargar la información. Intenta de nuevo.
+        </p>
+        <button
+          class="px-6 py-3 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:shadow-lg transition-all"
+          type="button"
+          (click)="reload()"
+        >
+          Reintentar
+        </button>
+      </div>
+    } @else {
+      <div class="text-center md:text-left">
+        <span class="font-headline-sm text-headline-sm font-bold text-primary block mb-2">
+          {{ about()?.nombreCompleto }}
+        </span>
+        <span class="font-body-md text-body-md text-secondary">
+          © {{ currentYear }} {{ about()?.nombreCompleto }}. Construido con precisión.
+        </span>
+      </div>
+
+      <div class="flex gap-6">
+        <a
+          class="font-body-md text-body-md text-secondary hover:text-primary transition-colors flex items-center gap-2"
+          [href]="'mailto:' + about()?.email"
+        >
+          <i class="pi pi-envelope text-xl" aria-hidden="true"></i>
+          Email
+        </a>
+        <a
+          class="font-body-md text-body-md text-secondary hover:text-primary transition-colors flex items-center gap-2"
+          [href]="linkedinUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="pi pi-linkedin text-xl" aria-hidden="true"></i>
+          LinkedIn
+        </a>
+        <a
+          class="font-body-md text-body-md text-secondary hover:text-primary transition-colors flex items-center gap-2"
+          [href]="githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="pi pi-github text-xl" aria-hidden="true"></i>
+          GitHub
+        </a>
+      </div>
+    }
+  </div>
+</footer>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Observable, of, Subject, throwError } from 'rxjs';
-import { Hero, ROLE_LABEL } from './hero';
-import { GITHUB_URL } from '../shared/constants/portfolio-links';
-import { PortfolioService } from '../shared/services/portfolio.service';
-import { Portfolio } from '../shared/models/portfolio.models';
+import { Footer } from './footer';
+import { GITHUB_URL, LINKEDIN_URL } from '../constants/portfolio-links';
+import { PortfolioService } from '../services/portfolio.service';
+import { Portfolio } from '../models/portfolio.models';
 
-describe('Hero', () => {
+describe('Footer', () => {
   let portfolioService: { getPortfolio: () => Observable<Portfolio> };
 
   beforeEach(() => {
     portfolioService = { getPortfolio: vi.fn() };
   });
 
-  it('renders section with id inicio', () => {
+  it('renders footer element', () => {
     const { compiled } = setup(() => of(mockPortfolio()));
-    expect(compiled.querySelector('section#inicio')).toBeTruthy();
+    expect(compiled.querySelector('footer')).toBeTruthy();
   });
 
   it('shows skeleton while loading', () => {
@@ -22,36 +22,51 @@ describe('Hero', () => {
     expect(compiled.querySelectorAll('.animate-pulse').length).toBeGreaterThan(0);
   });
 
-  it('renders label, name, description and links on success', () => {
+  it('renders name and copyright from API on success', () => {
     const portfolio = mockPortfolio();
     const { compiled } = setup(() => of(portfolio));
 
-    expect(compiled.textContent).toContain(ROLE_LABEL);
     expect(compiled.textContent).toContain(portfolio.about.nombreCompleto);
-    expect(compiled.textContent).toContain(portfolio.about.descripcion);
+    expect(compiled.textContent).toContain(
+      `© ${new Date().getFullYear()} ${portfolio.about.nombreCompleto}. Construido con precisión.`,
+    );
+  });
 
-    const projectsLink = compiled.querySelector<HTMLAnchorElement>('a[href="#proyectos"]');
-    expect(projectsLink?.textContent?.trim()).toBe('Ver proyectos');
+  it('renders email link with mailto href from API', () => {
+    const portfolio = mockPortfolio();
+    const { compiled } = setup(() => of(portfolio));
+
+    const emailLink = compiled.querySelector<HTMLAnchorElement>(
+      `a[href="mailto:${portfolio.about.email}"]`,
+    );
+    expect(emailLink?.textContent?.trim()).toContain('Email');
+    expect(emailLink?.querySelector('i.pi.pi-envelope.text-xl')).toBeTruthy();
+  });
+
+  it('renders LinkedIn and GitHub links with external attributes', () => {
+    const { compiled } = setup(() => of(mockPortfolio()));
+
+    const linkedinLink = compiled.querySelector<HTMLAnchorElement>(`a[href="${LINKEDIN_URL}"]`);
+    expect(linkedinLink?.textContent?.trim()).toContain('LinkedIn');
+    expect(linkedinLink?.getAttribute('target')).toBe('_blank');
+    expect(linkedinLink?.getAttribute('rel')).toBe('noopener noreferrer');
+    expect(linkedinLink?.querySelector('i.pi.pi-linkedin.text-xl')).toBeTruthy();
 
     const githubLink = compiled.querySelector<HTMLAnchorElement>(`a[href="${GITHUB_URL}"]`);
-    expect(githubLink?.textContent?.trim()).toBe('GitHub');
+    expect(githubLink?.textContent?.trim()).toContain('GitHub');
     expect(githubLink?.getAttribute('target')).toBe('_blank');
     expect(githubLink?.getAttribute('rel')).toBe('noopener noreferrer');
+    expect(githubLink?.querySelector('i.pi.pi-github.text-xl')).toBeTruthy();
   });
 
-  it('renders profile image with src and alt on success', () => {
-    const portfolio = mockPortfolio();
-    const { compiled } = setup(() => of(portfolio));
-
-    const image = compiled.querySelector<HTMLImageElement>('img');
-    expect(image?.getAttribute('src')).toBe(portfolio.about.foto);
-    expect(image?.getAttribute('alt')).toContain(portfolio.about.nombreCompleto);
-  });
-
-  it('hides image on viewports narrower than md', () => {
+  it('marks icons as aria-hidden', () => {
     const { compiled } = setup(() => of(mockPortfolio()));
-    const imageContainer = compiled.querySelector('.hidden.md\\:block');
-    expect(imageContainer).toBeTruthy();
+
+    const icons = compiled.querySelectorAll('i.pi');
+    expect(icons.length).toBe(3);
+    icons.forEach((icon) => {
+      expect(icon.getAttribute('aria-hidden')).toBe('true');
+    });
   });
 
   it('shows error message and retry button when fetch fails', () => {
@@ -73,17 +88,17 @@ describe('Hero', () => {
   });
 
   function setup(serviceFactory: () => Observable<Portfolio>): {
-    fixture: ComponentFixture<Hero>;
+    fixture: ComponentFixture<Footer>;
     compiled: HTMLElement;
   } {
     portfolioService.getPortfolio = vi.fn(serviceFactory);
 
     TestBed.configureTestingModule({
-      imports: [Hero],
+      imports: [Footer],
       providers: [{ provide: PortfolioService, useValue: portfolioService }],
     });
 
-    const fixture = TestBed.createComponent(Hero);
+    const fixture = TestBed.createComponent(Footer);
     fixture.detectChanges();
     return { fixture, compiled: fixture.nativeElement as HTMLElement };
   }
@@ -93,7 +108,7 @@ function mockPortfolio(): Portfolio {
   return {
     about: {
       nombreCompleto: 'Aldo Guevara Muñoz',
-      descripcion: 'Desarrollador full stack junior especializado en Angular y .NET.',
+      descripcion: 'Desarrollador full stack junior.',
       email: 'test@example.com',
       ubicacion: 'Ciudad de México',
       telefono: '5555555555',

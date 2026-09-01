@@ -80,6 +80,17 @@ describe('App', () => {
     const education = compiled.querySelector('app-educacion');
     expect(skills?.compareDocumentPosition(education!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
   });
+
+  it('should render the footer after main', () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-footer')).toBeTruthy();
+
+    const main = compiled.querySelector('main');
+    const footer = compiled.querySelector('app-footer');
+    expect(main?.compareDocumentPosition(footer!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+  });
 });
 
 function mockPortfolio(): Portfolio {

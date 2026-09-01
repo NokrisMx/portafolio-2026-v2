@@ -1,20 +1,19 @@
 import { Component, computed, inject } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
-import { PortfolioService } from '../shared/services/portfolio.service';
-import { Portfolio } from '../shared/models/portfolio.models';
-import { GITHUB_URL } from '../shared/constants/portfolio-links';
-
-export const ROLE_LABEL = 'FullStack Developer Jr';
+import { PortfolioService } from '../services/portfolio.service';
+import { Portfolio } from '../models/portfolio.models';
+import { GITHUB_URL, LINKEDIN_URL } from '../constants/portfolio-links';
 
 @Component({
   imports: [],
-  selector: 'app-hero',
-  styleUrl: './hero.css',
-  templateUrl: './hero.html',
+  selector: 'app-footer',
+  styleUrl: './footer.css',
+  templateUrl: './footer.html',
 })
-export class Hero {
-  readonly roleLabel = ROLE_LABEL;
+export class Footer {
   readonly githubUrl = GITHUB_URL;
+  readonly linkedinUrl = LINKEDIN_URL;
+  readonly currentYear = new Date().getFullYear();
 
   private readonly portfolioService = inject(PortfolioService);
 
