@@ -9,7 +9,6 @@ export const SECTION_TITLE = 'Proyectos';
 @Component({
   imports: [ProjectCard],
   selector: 'app-projects',
-  styleUrl: './projects.css',
   templateUrl: './projects.html',
 })
 export class Projects {

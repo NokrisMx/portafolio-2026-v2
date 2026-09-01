@@ -10,7 +10,6 @@ export const SECTION_TITLE = 'Experiencia';
 @Component({
   imports: [Chip],
   selector: 'app-experience',
-  styleUrl: './experience.css',
   templateUrl: './experience.html',
 })
 export class Experience {

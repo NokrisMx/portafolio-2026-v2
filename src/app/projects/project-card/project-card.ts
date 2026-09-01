@@ -6,7 +6,6 @@ import { Chip } from '../../shared/chip/chip';
 @Component({
   imports: [Chip],
   selector: 'app-project-card',
-  styleUrl: './project-card.css',
   templateUrl: './project-card.html',
 })
 export class ProjectCard {

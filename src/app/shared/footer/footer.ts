@@ -7,7 +7,6 @@ import { GITHUB_URL, LINKEDIN_URL } from '../constants/portfolio-links';
 @Component({
   imports: [],
   selector: 'app-footer',
-  styleUrl: './footer.css',
   templateUrl: './footer.html',
 })
 export class Footer {

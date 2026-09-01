@@ -1,6 +1,6 @@
 # SPEC 01 — Header/Nav del portafolio
 
-> **Status:** Approved
+> **Status:** Implementado
 > **Depends on:** Ninguna (primera spec del repo)
 > **Date:** 2026-08-31
 > **Objective:** Implementar el header/nav fijo del portafolio (brand, 6 links de sección en español, CTA de contacto y menú móvil funcional) como componente standalone, cableando por primera vez los tokens de diseño en Tailwind v4.
@@ -75,19 +75,19 @@ Convención: los ids de sección viven en minúsculas, sin acentos y con guiones
 
 ## Acceptance criteria
 
-- [ ] `npm run build` termina sin errores y sin exceder los presupuestos (bundle inicial por debajo del warn de 500kB).
-- [ ] `ng test --watch=false` pasa en verde (specs de `App` y `Header`).
-- [ ] La barra queda fija arriba con fondo `surface`, borde inferior y sombra sutil, fiel al prototipo en viewport ≥ 768px.
-- [ ] El brand muestra "Aldo Guevara Muñoz" y enlaza a `#inicio`.
-- [ ] Los 6 links muestran los labels acordados y sus `href` apuntan exactamente a `#inicio`, `#sobre-mi`, `#experiencia`, `#proyectos`, `#habilidades`, `#educacion`.
-- [ ] El CTA "Contacto" es un anchor con `href="mailto:guevaraaldo44@gmail.com"`.
-- [ ] En viewport < 768px los links desktop y el CTA de la barra se ocultan y solo queda visible el botón hamburguesa con icono `pi pi-bars`.
-- [ ] El botón hamburguesa abre/cierra el panel, `aria-expanded` refleja el estado y el panel lista los 6 links + CTA.
-- [ ] Hacer click en un link del panel móvil, o pulsar Escape, o click en el backdrop, cierra el panel.
-- [ ] Sin secciones en el DOM, el link "Inicio" renderiza con estilo activo (color `primary`, bold, borde inferior) y los demás con estilo inactivo.
-- [ ] El HTML raíz tiene `lang="es"`, title `Aldo Guevara Muñoz | FullStack Developer` y carga Inter/JetBrains Mono.
-- [ ] `src/styles.css` define el bloque `@theme` con los tokens de `design/DESIGN.md` e importa primeicons; no existe `tailwind.config.js`.
-- [ ] El header no usa clases `dark:` y su CSS de componente queda por debajo del presupuesto de 4kB.
+- [x] `npm run build` termina sin errores y sin exceder los presupuestos (bundle inicial por debajo del warn de 500kB).
+- [x] `ng test --watch=false` pasa en verde (specs de `App` y `Header`).
+- [x] La barra queda fija arriba con fondo `surface`, borde inferior y sombra sutil, fiel al prototipo en viewport ≥ 768px.
+- [x] El brand muestra "Aldo Guevara Muñoz" y enlaza a `#inicio`.
+- [x] Los 6 links muestran los labels acordados y sus `href` apuntan exactamente a `#inicio`, `#sobre-mi`, `#experiencia`, `#proyectos`, `#habilidades`, `#educacion`.
+- [x] El CTA "Contacto" es un anchor con `href="mailto:guevaraaldo44@gmail.com"`.
+- [x] En viewport < 768px los links desktop y el CTA de la barra se ocultan y solo queda visible el botón hamburguesa con icono `pi pi-bars`.
+- [x] El botón hamburguesa abre/cierra el panel, `aria-expanded` refleja el estado y el panel lista los 6 links + CTA.
+- [x] Hacer click en un link del panel móvil, o pulsar Escape, o click en el backdrop, cierra el panel.
+- [x] Sin secciones en el DOM, el link "Inicio" renderiza con estilo activo (color `primary`, bold, borde inferior) y los demás con estilo inactivo.
+- [x] El HTML raíz tiene `lang="es"`, title `Aldo Guevara Muñoz | FullStack Developer` y carga Inter/JetBrains Mono.
+- [x] `src/styles.css` define el bloque `@theme` con los tokens de `design/DESIGN.md` e importa primeicons; no existe `tailwind.config.js`.
+- [x] El header no usa clases `dark:` y su CSS de componente queda por debajo del presupuesto de 4kB.
 
 ## Decisions
 

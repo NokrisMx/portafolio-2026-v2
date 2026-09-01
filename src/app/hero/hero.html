@@ -1,98 +1,78 @@
 <section
   class="relative min-h-[80vh] flex items-center justify-center px-gutter py-xl bg-surface-bright overflow-hidden"
-  id="inicio"
->
+  id="inicio">
   <!-- Decorative background blobs -->
   <div class="absolute inset-0 pointer-events-none opacity-20">
-    <div
-      class="absolute top-1/4 left-1/4 w-125 h-125 bg-primary-container rounded-full blur-[100px]"
-    ></div>
-    <div
-      class="absolute bottom-1/4 right-1/4 w-100 h-100 bg-tertiary-container rounded-full blur-[100px]"
-    ></div>
+    <div class="absolute top-1/4 left-1/4 w-125 h-125 bg-primary-container rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-100 h-100 bg-tertiary-container rounded-full blur-[100px]"></div>
   </div>
 
   <div
-    class="max-w-300 mx-auto w-full relative z-10 text-center md:text-left flex flex-col md:flex-row items-center gap-lg"
-  >
+    class="max-w-300 mx-auto w-full relative z-10 text-center md:text-left flex flex-col md:flex-row items-center gap-lg">
     @if (isLoading()) {
-      <div class="flex-1 space-y-6 w-full">
-        <div class="h-5 w-48 bg-surface-container rounded-base mx-auto md:mx-0 animate-pulse"></div>
+    <div class="flex-1 space-y-6 w-full">
+      <div class="h-5 w-48 bg-surface-container rounded-base mx-auto md:mx-0 animate-pulse"></div>
+      <div class="h-12 md:h-14 w-3/4 bg-surface-container rounded-base mx-auto md:mx-0 animate-pulse"></div>
+      <div class="space-y-2 max-w-2xl mx-auto md:mx-0">
+        <div class="h-6 w-full bg-surface-container rounded-base animate-pulse"></div>
+        <div class="h-6 w-5/6 bg-surface-container rounded-base animate-pulse"></div>
+      </div>
+      <div class="flex gap-4 justify-center md:justify-start pt-4">
+        <div class="h-12 w-36 bg-surface-container rounded-base animate-pulse"></div>
+        <div class="h-12 w-36 bg-surface-container rounded-base animate-pulse"></div>
+      </div>
+    </div>
+    <div class="flex-1 hidden md:block md:min-w-80 lg:min-w-112">
+      <div class="relative w-full aspect-square max-w-112 mx-auto overflow-hidden">
         <div
-          class="h-12 md:h-14 w-3/4 bg-surface-container rounded-base mx-auto md:mx-0 animate-pulse"
-        ></div>
-        <div class="space-y-2 max-w-2xl mx-auto md:mx-0">
-          <div class="h-6 w-full bg-surface-container rounded-base animate-pulse"></div>
-          <div class="h-6 w-5/6 bg-surface-container rounded-base animate-pulse"></div>
+          class="absolute inset-0 bg-gradient-to-tr from-surface-container-high to-surface rounded-xl border border-outline-variant shadow-sm">
         </div>
-        <div class="flex gap-4 justify-center md:justify-start pt-4">
-          <div class="h-12 w-36 bg-surface-container rounded-base animate-pulse"></div>
-          <div class="h-12 w-36 bg-surface-container rounded-base animate-pulse"></div>
-        </div>
+        <div class="absolute inset-0 bg-surface-container rounded-xl animate-pulse"></div>
       </div>
-      <div class="flex-1 hidden md:block md:min-w-80 lg:min-w-[448px]">
-        <div class="relative w-full aspect-square max-w-[448px] mx-auto overflow-hidden">
-          <div
-            class="absolute inset-0 bg-gradient-to-tr from-surface-container-high to-surface rounded-xl border border-outline-variant shadow-sm"
-          ></div>
-          <div class="absolute inset-0 bg-surface-container rounded-xl animate-pulse"></div>
-        </div>
-      </div>
+    </div>
     } @else if (error()) {
-      <div class="flex-1 w-full text-center md:text-left">
-        <p class="text-body-lg text-error mb-4">
-          No se pudo cargar la información. Intenta de nuevo.
-        </p>
-        <button
-          class="px-6 py-3 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:shadow-lg transition-all"
-          type="button"
-          (click)="reload()"
-        >
-          Reintentar
-        </button>
-      </div>
+    <div class="flex-1 w-full text-center md:text-left">
+      <p class="text-body-lg text-error mb-4">
+        No se pudo cargar la información. Intenta de nuevo.
+      </p>
+      <button
+        class="px-6 py-3 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:shadow-lg transition-all"
+        type="button" (click)="reload()">
+        Reintentar
+      </button>
+    </div>
     } @else {
-      <div class="flex-1 space-y-6">
-        <p class="font-label-mono text-label-mono text-primary uppercase tracking-widest">
-          {{ roleLabel }}
-        </p>
-        <h1
-          class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background"
-        >
-          {{ about()?.nombreCompleto }}
-        </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-          {{ about()?.descripcion }}
-        </p>
-        <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
-          <a
-            class="px-6 py-3 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:shadow-lg transition-all"
-            href="#proyectos"
-          >
-            Ver proyectos
-          </a>
-          <a
-            class="px-6 py-3 border border-primary text-primary rounded-base font-label-mono text-label-mono hover:bg-primary/5 transition-all"
-            [href]="githubUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-        </div>
+    <div class="flex-1 space-y-6">
+      <p class="font-label-mono text-label-mono text-primary uppercase tracking-widest">
+        {{ roleLabel }}
+      </p>
+      <h1
+        class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background">
+        {{ about()?.nombreCompleto }}
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+        {{ about()?.descripcion }}
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
+        <a class="px-6 py-3 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:shadow-lg transition-all"
+          href="#proyectos">
+          Ver proyectos
+        </a>
+        <a class="px-6 py-3 border border-primary text-primary rounded-base font-label-mono text-label-mono hover:bg-primary/5 transition-all"
+          [href]="githubUrl" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
       </div>
-      <div class="flex-1 hidden md:block md:min-w-80 lg:min-w-[448px]">
-        <div class="relative w-full aspect-square max-w-[448px] mx-auto overflow-hidden">
-          <div
-            class="absolute inset-0 bg-gradient-to-tr from-surface-container-high to-surface rounded-xl border border-outline-variant shadow-sm rotate-3 transform transition-transform hover:rotate-0 duration-300"
-          ></div>
-          <img
-            class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-md border border-outline-variant"
-            [src]="about()?.foto"
-            [alt]="'Foto de ' + about()?.nombreCompleto"
-          />
+    </div>
+    <div class="flex-1 hidden md:block md:min-w-80 lg:min-w-112">
+      <div class="relative w-full aspect-square max-w-112 mx-auto overflow-hidden">
+        <div
+          class="absolute inset-0 bg-gradient-to-tr from-surface-container-high to-surface rounded-xl border border-outline-variant shadow-sm rotate-3 transform transition-transform hover:rotate-0 duration-300">
         </div>
+        <img class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-md border border-outline-variant"
+          [src]="about()?.foto" [alt]="'Foto de ' + about()?.nombreCompleto" />
       </div>
+    </div>
     }
   </div>
 </section>

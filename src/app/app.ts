@@ -12,7 +12,6 @@ import { Educacion } from './educacion/educacion';
 @Component({
   imports: [RouterOutlet, Header, Footer, Hero, About, Experience, Projects, Skills, Educacion],
   selector: 'app-root',
-  styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {}

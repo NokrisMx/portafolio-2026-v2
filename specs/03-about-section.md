@@ -1,6 +1,6 @@
 # SPEC 03 — Sección Sobre mí del portafolio
 
-> **Status:** Approved
+> **Status:** Implementado
 > **Depends on:** SPEC 01, SPEC 02
 > **Date:** 2026-09-01
 > **Objective:** Implementar la sección "Sobre mí" (id `sobre-mi`) del portafolio como componente standalone con `rxResource` sobre `PortfolioService`, mostrando las tarjetas de correo, ubicación, teléfono y edad más el botón "Descargar CV" con los datos de la mock API, siguiendo el layout de `design/code.html`.
@@ -66,17 +66,17 @@ export const CV_BUTTON_LABEL = 'Descargar CV';
 
 ## Acceptance criteria
 
-- [ ] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
-- [ ] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService y About).
-- [ ] La sección renderiza con `id="sobre-mi"` y el link "Sobre mí" del header la activa al hacer scroll hasta ella.
-- [ ] Las 4 tarjetas muestran los labels Correo, Ubicación, Teléfono y Edad, y sus valores vienen de la mock API (`about.email`, `about.ubicacion`, `about.telefono`, `about.edad`), no hardcodeados.
-- [ ] El correo es un anchor cuyo `href` comienza con `mailto:` y el teléfono un anchor cuyo `href` comienza con `tel:`.
-- [ ] El botón "Descargar CV" es un anchor con `href` en `about.cv` (`/assets/documents/CV_Aldo_Guevara_Muñoz.pdf`) y atributo `download`.
-- [ ] El título muestra "Sobre mí" en `headline-md` con la barra divisoria `bg-primary` debajo, y la sección no muestra `about.descripcion`.
-- [ ] Mientras carga se ve el skeleton con la estructura (título + 4 tarjetas + botón); si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
-- [ ] No hay clases `dark:`; los radios siguen `DESIGN.md` (tarjetas y botón `rounded-base`).
-- [ ] El texto visible está en español.
-- [ ] `public/assets/documents/` existe versionada con `.gitkeep`.
+- [x] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
+- [x] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService y About).
+- [x] La sección renderiza con `id="sobre-mi"` y el link "Sobre mí" del header la activa al hacer scroll hasta ella.
+- [x] Las 4 tarjetas muestran los labels Correo, Ubicación, Teléfono y Edad, y sus valores vienen de la mock API (`about.email`, `about.ubicacion`, `about.telefono`, `about.edad`), no hardcodeados.
+- [x] El correo es un anchor cuyo `href` comienza con `mailto:` y el teléfono un anchor cuyo `href` comienza con `tel:`.
+- [x] El botón "Descargar CV" es un anchor con `href` en `about.cv` (`/assets/documents/CV_Aldo_Guevara_Muñoz.pdf`) y atributo `download`.
+- [x] El título muestra "Sobre mí" en `headline-md` con la barra divisoria `bg-primary` debajo, y la sección no muestra `about.descripcion`.
+- [x] Mientras carga se ve el skeleton con la estructura (título + 4 tarjetas + botón); si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
+- [x] No hay clases `dark:`; los radios siguen `DESIGN.md` (tarjetas y botón `rounded-base`).
+- [x] El texto visible está en español.
+- [x] `public/assets/documents/` existe versionada con `.gitkeep`.
 
 ## Decisions
 

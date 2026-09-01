@@ -1,6 +1,6 @@
 # SPEC 04 — Sección Experiencia del portafolio
 
-> **Status:** Approved
+> **Status:** Implementado
 > **Depends on:** SPEC 01, SPEC 02
 > **Date:** 2026-09-01
 > **Objective:** Implementar la sección "Experiencia" (id `experiencia`) del portafolio como componente standalone con `rxResource` sobre `PortfolioService`, mostrando un timeline vertical de cards con puesto, rango de fechas, empresa enlazada con logo y chips de habilidades, alimentado por `experiencia[]` de la mock API y siguiendo el layout de `design/code.html`.
@@ -66,18 +66,18 @@ export const SECTION_TITLE = 'Experiencia';
 
 ## Acceptance criteria
 
-- [ ] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
-- [ ] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService, About y Experience).
-- [ ] La sección renderiza con `id="experiencia"` y el link "Experiencia" del header la activa al hacer scroll hasta ella.
-- [ ] Cada card muestra `puesto`, `empresa` y `descripcion` traídos de la mock API (no hardcodeados), en el orden del arreglo.
-- [ ] El badge de fechas muestra `fechaInicio` y `fechaFin` concatenados tal cual el API (p. ej. "Julio 2025 – Enero 2026").
-- [ ] La empresa es un anchor a su `url` con `target="_blank"` y `rel="noopener noreferrer"`.
-- [ ] El logo de cada empresa usa `[src]` normalizado a `/assets/images/vitek.png` y `/assets/images/vidasypensiones.png` (responden 200 en el dev server), con `alt` que incluye el nombre de la empresa.
-- [ ] Cada card muestra un chip por elemento de `habilidades` con estilo `label-mono`.
-- [ ] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
-- [ ] No hay clases `dark:`; radios siguen `DESIGN.md` (card `rounded-lg`, badge y chips `rounded-full`).
-- [ ] El texto visible está en español y los identificadores del código en inglés.
-- [ ] `experience.css` queda vacío o mínimo (estilos con utilidades Tailwind en la plantilla).
+- [x] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
+- [x] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService, About y Experience).
+- [x] La sección renderiza con `id="experiencia"` y el link "Experiencia" del header la activa al hacer scroll hasta ella.
+- [x] Cada card muestra `puesto`, `empresa` y `descripcion` traídos de la mock API (no hardcodeados), en el orden del arreglo.
+- [x] El badge de fechas muestra `fechaInicio` y `fechaFin` concatenados tal cual el API (p. ej. "Julio 2025 – Enero 2026").
+- [x] La empresa es un anchor a su `url` con `target="_blank"` y `rel="noopener noreferrer"`.
+- [x] El logo de cada empresa usa `[src]` normalizado a `/assets/images/vitek.png` y `/assets/images/vidasypensiones.png` (responden 200 en el dev server), con `alt` que incluye el nombre de la empresa.
+- [x] Cada card muestra un chip por elemento de `habilidades` con estilo `label-mono`.
+- [x] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
+- [x] No hay clases `dark:`; radios siguen `DESIGN.md` (card `rounded-lg`, badge y chips `rounded-full`).
+- [x] El texto visible está en español y los identificadores del código en inglés.
+- [x] `experience.css` queda vacío o mínimo (estilos con utilidades Tailwind en la plantilla).
 
 ## Decisions
 

@@ -1,6 +1,6 @@
 # SPEC 05 — Sección Proyectos del portafolio
 
-> **Status:** Approved
+> **Status:** Implementado
 > **Depends on:** SPEC 01, SPEC 02, SPEC 04
 > **Date:** 2026-09-01
 > **Objective:** Implementar la sección "Proyectos" (id `proyectos`) del portafolio como componente standalone con `rxResource` sobre `PortfolioService`, mostrando un bento-grid de cards reutilizables (`ProjectCard` con datos vía `input()`) con imagen, nombre, descripción, chips de tecnologías y botones GitHub / "Ver demo" condicional, alimentado por `proyectos[]` de la mock API y siguiendo el layout de `design/code.html`.
@@ -69,19 +69,19 @@ export const SECTION_TITLE = 'Proyectos';
 
 ## Acceptance criteria
 
-- [ ] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
-- [ ] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService, About, Experience, ProjectCard y Projects).
-- [ ] La sección renderiza con `id="proyectos"` y el link "Proyectos" del header la activa al hacer scroll hasta ella.
-- [ ] Se renderiza un `app-project-card` por elemento de `proyectos[]`, en el orden del arreglo, con `nombre`, `descripcion` e `image` traídos de la mock API (no hardcodeados).
-- [ ] Cada card muestra un chip por elemento de `tecnologias` con estilo `label-mono`.
-- [ ] El botón GitHub es un anchor a `project.github` con `target="_blank"` y `rel="noopener noreferrer"`.
-- [ ] El botón "Ver demo" solo aparece cuando `demo` no está vacío (hoy los 4 proyectos lo muestran; verificado con un caso vacío en `project-card.spec.ts`).
-- [ ] La imagen de cada card usa `[src]` normalizado a `/assets/images/guevaralibreriasfront.jpg`, `/assets/images/guevaralibreriasback.jpg`, `/assets/images/blackjack.jpg` y `/assets/images/petcute.jpg` (responden 200 en el dev server), con `alt` igual al nombre del proyecto.
-- [ ] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
-- [ ] `toAbsoluteAssetPath` vive en `src/app/shared/utils/asset-path.ts` y `experience.ts` la importa (sin copia local).
-- [ ] No hay clases `dark:`; radios siguen `DESIGN.md` (card `rounded-lg`, botones `rounded-base`, chips `rounded-full`).
-- [ ] El texto visible está en español y los identificadores del código en inglés.
-- [ ] `projects.css` y `project-card.css` quedan vacíos o mínimos (estilos con utilidades Tailwind en las plantillas).
+- [x] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
+- [x] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService, About, Experience, ProjectCard y Projects).
+- [x] La sección renderiza con `id="proyectos"` y el link "Proyectos" del header la activa al hacer scroll hasta ella.
+- [x] Se renderiza un `app-project-card` por elemento de `proyectos[]`, en el orden del arreglo, con `nombre`, `descripcion` e `image` traídos de la mock API (no hardcodeados).
+- [x] Cada card muestra un chip por elemento de `tecnologias` con estilo `label-mono`.
+- [x] El botón GitHub es un anchor a `project.github` con `target="_blank"` y `rel="noopener noreferrer"`.
+- [x] El botón "Ver demo" solo aparece cuando `demo` no está vacío (hoy los 4 proyectos lo muestran; verificado con un caso vacío en `project-card.spec.ts`).
+- [x] La imagen de cada card usa `[src]` normalizado a `/assets/images/guevaralibreriasfront.jpg`, `/assets/images/guevaralibreriasback.jpg`, `/assets/images/blackjack.jpg` y `/assets/images/petcute.jpg` (responden 200 en el dev server), con `alt` igual al nombre del proyecto.
+- [x] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
+- [x] `toAbsoluteAssetPath` vive en `src/app/shared/utils/asset-path.ts` y `experience.ts` la importa (sin copia local).
+- [x] No hay clases `dark:`; radios siguen `DESIGN.md` (card `rounded-lg`, botones `rounded-base`, chips `rounded-full`).
+- [x] El texto visible está en español y los identificadores del código en inglés.
+- [x] `projects.css` y `project-card.css` quedan vacíos o mínimos (estilos con utilidades Tailwind en las plantillas).
 
 ## Decisions
 

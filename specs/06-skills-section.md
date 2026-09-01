@@ -1,6 +1,6 @@
 # SPEC 06 — Sección Habilidades del portafolio
 
-> **Status:** Approved
+> **Status:** Implementado
 > **Depends on:** SPEC 01, SPEC 02, SPEC 04, SPEC 05
 > **Date:** 2026-09-01
 > **Objective:** Implementar la sección "Habilidades" (id `habilidades`) del portafolio como componente standalone con `rxResource` sobre `PortfolioService`, mostrando los `nombre` de `habilidades[]` de la mock API como chips de texto centrados mediante un componente compartido `Chip` (extraído a `src/app/shared/chip/` y adoptado también por `experience` y `project-card` en reemplazo de su markup local), siguiendo el layout de `design/code.html`.
@@ -64,17 +64,17 @@ export const SECTION_TITLE = 'Habilidades';
 
 ## Acceptance criteria
 
-- [ ] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
-- [ ] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService, About, Experience, ProjectCard, Projects, Chip y Skills).
-- [ ] La sección renderiza con `id="habilidades"` y el link "Habilidades" del header la activa al hacer scroll hasta ella.
-- [ ] Se renderiza un `app-chip` por elemento de `habilidades[]`, en el orden del arreglo, con `label` igual al `nombre` tal cual el API (p. ej. "ANGULAR", "JavaScript", "TAILWIND CSS", "C#") y `size="md"` (no hardcodeados).
-- [ ] Ningún chip muestra icono: el campo `icono` del contrato no se renderiza en la sección.
-- [ ] `experience.html` y `project-card.html` no tienen markup local de pill: usan `<app-chip>` y sus specs siguen pasando sin cambios.
-- [ ] El título "Habilidades" usa `headline-md` y la barra divisoria va centrada (`mx-auto`) sobre la fila de chips con `justify-center`.
-- [ ] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
-- [ ] No hay clases `dark:`; los chips son `rounded-full` con fondo `surface-container-high` y borde `outline-variant` según `DESIGN.md`.
-- [ ] El texto visible está en español y los identificadores del código en inglés.
-- [ ] `skills.css` y `chip.css` quedan vacíos o mínimos (estilos con utilidades Tailwind en las plantillas).
+- [x] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
+- [x] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService, About, Experience, ProjectCard, Projects, Chip y Skills).
+- [x] La sección renderiza con `id="habilidades"` y el link "Habilidades" del header la activa al hacer scroll hasta ella.
+- [x] Se renderiza un `app-chip` por elemento de `habilidades[]`, en el orden del arreglo, con `label` igual al `nombre` tal cual el API (p. ej. "ANGULAR", "JavaScript", "TAILWIND CSS", "C#") y `size="md"` (no hardcodeados).
+- [x] Ningún chip muestra icono: el campo `icono` del contrato no se renderiza en la sección.
+- [x] `experience.html` y `project-card.html` no tienen markup local de pill: usan `<app-chip>` y sus specs siguen pasando sin cambios.
+- [x] El título "Habilidades" usa `headline-md` y la barra divisoria va centrada (`mx-auto`) sobre la fila de chips con `justify-center`.
+- [x] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
+- [x] No hay clases `dark:`; los chips son `rounded-full` con fondo `surface-container-high` y borde `outline-variant` según `DESIGN.md`.
+- [x] El texto visible está en español y los identificadores del código en inglés.
+- [x] `skills.css` y `chip.css` quedan vacíos o mínimos (estilos con utilidades Tailwind en las plantillas).
 
 ## Decisions
 

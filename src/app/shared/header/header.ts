@@ -20,7 +20,6 @@ const BRAND_NAME = 'Aldo Guevara Muñoz';
 @Component({
   selector: 'app-header',
   templateUrl: './header.html',
-  styleUrl: './header.css',
 })
 export class Header {
   protected readonly brandName = BRAND_NAME;

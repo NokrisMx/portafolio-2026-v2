@@ -1,6 +1,6 @@
 # SPEC 07 — Sección Educación del portafolio
 
-> **Status:** Approved
+> **Status:** Implementado
 > **Depends on:** SPEC 01, SPEC 02
 > **Date:** 2026-09-01
 > **Objective:** Implementar la sección "Educación" (id `educacion`) del portafolio como componente standalone con `rxResource` sobre `PortfolioService`, mostrando las entradas de `educacion[]` de la mock API como cards inline con título, institución, descripción y pill de fechas tal cual el contrato, siguiendo el layout de `design/code.html`.
@@ -61,17 +61,17 @@ export const SECTION_TITLE = 'Educación';
 
 ## Acceptance criteria
 
-- [ ] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
-- [ ] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService, About, Experience, ProjectCard, Projects, Chip, Skills y Educacion).
-- [ ] La sección renderiza con `id="educacion"` y el link "Educación" del header la activa al hacer scroll hasta ella.
-- [ ] Se renderiza una card por elemento de `educacion[]`, en el orden del arreglo, con `titulo` en el `h3`, `institucion`, `descripcion` y fechas traídos de la mock API (no hardcodeados).
-- [ ] La pill de fechas muestra `fechaInicio – fechaFin` tal cual el contrato: "agosto 2018 – diciembre 2022".
-- [ ] El campo `descripcion` se renderiza bajo la institución (dato que el prototipo omite).
-- [ ] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
-- [ ] Con el arreglo `educacion` vacío no se renderizan cards (verificado en `educacion.spec.ts`).
-- [ ] No hay clases `dark:`; la card usa `rounded-lg` (1rem, "Large Containers" de `DESIGN.md`) y la pill `rounded-full` con fondo `surface-container-high`.
-- [ ] El texto visible está en español y los identificadores del código en inglés.
-- [ ] `educacion.css` queda vacío o mínimo (estilos con utilidades Tailwind en las plantillas).
+- [x] `npm run build` termina sin errores y sin exceder presupuestos (bundle inicial < warn 500kB; CSS de componente < 4kB).
+- [x] `ng test --watch=false` pasa en verde (specs de App, Header, Hero, PortfolioService, About, Experience, ProjectCard, Projects, Chip, Skills y Educacion).
+- [x] La sección renderiza con `id="educacion"` y el link "Educación" del header la activa al hacer scroll hasta ella.
+- [x] Se renderiza una card por elemento de `educacion[]`, en el orden del arreglo, con `titulo` en el `h3`, `institucion`, `descripcion` y fechas traídos de la mock API (no hardcodeados).
+- [x] La pill de fechas muestra `fechaInicio – fechaFin` tal cual el contrato: "agosto 2018 – diciembre 2022".
+- [x] El campo `descripcion` se renderiza bajo la institución (dato que el prototipo omite).
+- [x] Mientras carga se ve el skeleton con la estructura; si el fetch falla se ve el mensaje de error y "Reintentar" relanza la petición.
+- [x] Con el arreglo `educacion` vacío no se renderizan cards (verificado en `educacion.spec.ts`).
+- [x] No hay clases `dark:`; la card usa `rounded-lg` (1rem, "Large Containers" de `DESIGN.md`) y la pill `rounded-full` con fondo `surface-container-high`.
+- [x] El texto visible está en español y los identificadores del código en inglés.
+- [x] `educacion.css` queda vacío o mínimo (estilos con utilidades Tailwind en las plantillas).
 
 ## Decisions
 

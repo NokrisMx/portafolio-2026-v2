@@ -9,7 +9,6 @@ export const ROLE_LABEL = 'FullStack Developer Jr';
 @Component({
   imports: [],
   selector: 'app-hero',
-  styleUrl: './hero.css',
   templateUrl: './hero.html',
 })
 export class Hero {

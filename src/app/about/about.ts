@@ -9,7 +9,6 @@ export const CV_BUTTON_LABEL = 'Descargar CV';
 @Component({
   imports: [],
   selector: 'app-about',
-  styleUrl: './about.css',
   templateUrl: './about.html',
 })
 export class About {
