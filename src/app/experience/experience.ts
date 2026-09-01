@@ -3,11 +3,12 @@ import { rxResource } from '@angular/core/rxjs-interop';
 import { PortfolioService } from '../shared/services/portfolio.service';
 import { Portfolio } from '../shared/models/portfolio.models';
 import { toAbsoluteAssetPath } from '../shared/utils/asset-path';
+import { Chip } from '../shared/chip/chip';
 
 export const SECTION_TITLE = 'Experiencia';
 
 @Component({
-  imports: [],
+  imports: [Chip],
   selector: 'app-experience',
   styleUrl: './experience.css',
   templateUrl: './experience.html',
