@@ -1,6 +1,6 @@
 # SPEC 08 — Footer del portafolio
 
-> **Status:** Approved
+> **Status:** Implementado
 > **Depends on:** SPEC 02
 > **Date:** 2026-09-01
 > **Objective:** Implementar el footer del portafolio como componente standalone transversal en `src/app/shared/footer/` con `rxResource` sobre `PortfolioService` (nombre y email desde la mock API), links de LinkedIn/GitHub como constantes compartidas en `src/app/shared/constants/portfolio-links.ts` (refactor de hero), copyright con año dinámico en español y estados skeleton/error con "Reintentar", siguiendo `design/code.html` 610–650.
