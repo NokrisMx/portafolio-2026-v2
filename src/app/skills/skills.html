@@ -1,6 +1,39 @@
 <section class="bg-surface-bright px-gutter py-xl" id="habilidades">
   <div class="max-w-300 mx-auto text-center">
-    <h2 class="font-headline-md text-headline-md text-on-background mb-4">Habilidades</h2>
-    <div class="h-1 w-12 bg-primary rounded-full mx-auto mb-12"></div>
+    @if (isLoading()) {
+      <div class="space-y-4">
+        <div class="h-8 w-48 bg-surface-container rounded-base animate-pulse mx-auto"></div>
+        <div class="h-1 w-12 bg-surface-container rounded-full mx-auto"></div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto mt-12">
+        @for (_ of [1, 2, 3, 4, 5, 6, 7, 8]; track $index) {
+          <div class="h-9 w-24 bg-surface-container rounded-full animate-pulse"></div>
+        }
+      </div>
+    } @else if (error()) {
+      <div class="text-center">
+        <p class="font-body-lg text-body-lg text-error mb-4">
+          No se pudo cargar la información. Intenta de nuevo.
+        </p>
+        <button
+          class="px-6 py-3 bg-primary text-on-primary rounded-base font-label-mono text-label-mono hover:shadow-lg transition-all"
+          type="button"
+          (click)="reload()"
+        >
+          Reintentar
+        </button>
+      </div>
+    } @else {
+      <h2 class="font-headline-md text-headline-md text-on-background mb-4">
+        {{ sectionTitle }}
+      </h2>
+      <div class="h-1 w-12 bg-primary rounded-full mx-auto mb-12"></div>
+
+      <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+        @for (skill of habilidades(); track skill.nombre) {
+          <app-chip [label]="skill.nombre" size="md" />
+        }
+      </div>
+    }
   </div>
 </section>
