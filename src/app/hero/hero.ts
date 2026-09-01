@@ -13,6 +13,9 @@ export const GITHUB_URL = 'https://github.com/NokrisMx';
   templateUrl: './hero.html',
 })
 export class Hero {
+  readonly roleLabel = ROLE_LABEL;
+  readonly githubUrl = GITHUB_URL;
+
   private readonly portfolioService = inject(PortfolioService);
 
   readonly portfolio = rxResource<Portfolio, unknown>({
