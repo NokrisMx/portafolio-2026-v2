@@ -58,6 +58,17 @@ describe('App', () => {
     const projects = compiled.querySelector('app-projects');
     expect(experience?.compareDocumentPosition(projects!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
   });
+
+  it('should render the skills section after projects', () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-skills')).toBeTruthy();
+
+    const projects = compiled.querySelector('app-projects');
+    const skills = compiled.querySelector('app-skills');
+    expect(projects?.compareDocumentPosition(skills!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+  });
 });
 
 function mockPortfolio(): Portfolio {

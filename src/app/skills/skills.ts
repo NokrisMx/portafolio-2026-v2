@@ -2,18 +2,17 @@ import { Component, computed, inject } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { PortfolioService } from '../shared/services/portfolio.service';
 import { Portfolio } from '../shared/models/portfolio.models';
-import { toAbsoluteAssetPath } from '../shared/utils/asset-path';
 import { Chip } from '../shared/chip/chip';
 
-export const SECTION_TITLE = 'Experiencia';
+export const SECTION_TITLE = 'Habilidades';
 
 @Component({
   imports: [Chip],
-  selector: 'app-experience',
-  styleUrl: './experience.css',
-  templateUrl: './experience.html',
+  selector: 'app-skills',
+  styleUrl: './skills.css',
+  templateUrl: './skills.html',
 })
-export class Experience {
+export class Skills {
   readonly sectionTitle = SECTION_TITLE;
 
   private readonly portfolioService = inject(PortfolioService);
@@ -24,11 +23,9 @@ export class Experience {
 
   readonly isLoading = this.portfolio.isLoading;
   readonly error = this.portfolio.error;
-  readonly experiencia = computed(() => this.portfolio.value()?.experiencia ?? []);
+  readonly habilidades = computed(() => this.portfolio.value()?.habilidades ?? []);
 
   reload(): void {
     this.portfolio.reload();
   }
-
-  readonly toAbsoluteAssetPath = toAbsoluteAssetPath;
 }
