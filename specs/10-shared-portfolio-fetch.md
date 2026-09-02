@@ -1,6 +1,6 @@
 # SPEC 10 — Fetch compartido de la mock API en PortfolioService
 
-> **Status:** Approved
+> **Status:** Implemented
 > **Depends on:** SPEC 02
 > **Date:** 2026-09-02
 > **Objective:** Deduplicar las 7 llamadas HTTP a la mock API en una sola petición
@@ -102,18 +102,18 @@ su propio subject y seguirían siendo 7 peticiones.
 
 ## Acceptance criteria
 
-- [ ] En la carga inicial de la página hay exactamente 1 petición GET al
+- [x] En la carga inicial de la página hay exactamente 1 petición GET al
       endpoint de la mock API (verificado en DevTools → Network), no 7.
-- [ ] Ninguno de los 7 componentes consumidores fue modificado: siguen con su
+- [x] Ninguno de los 7 componentes consumidores fue modificado: siguen con su
       `rxResource` sobre `getPortfolio()` con la misma firma.
-- [ ] `ng test --watch=false` pasa en verde, incluyendo los tests nuevos del
+- [x] `ng test --watch=false` pasa en verde, incluyendo los tests nuevos del
       servicio (multicast simultáneo, suscripción tardía cacheada, reintento tras
       error).
-- [ ] `npm run build` termina sin errores y sin exceder presupuestos.
-- [ ] Tras un error del API, el primer "Reintentar" dispara exactamente 1
+- [x] `npm run build` termina sin errores y sin exceder presupuestos.
+- [x] Tras un error del API, el primer "Reintentar" dispara exactamente 1
       petición nueva; los reintentos de las demás secciones reciben ese resultado
       sin peticiones extra.
-- [ ] La semántica de la caché es por carga de página, en memoria: no hay
+- [x] La semántica de la caché es por carga de página, en memoria: no hay
       persistencia en localStorage/IndexedDB.
 
 ## Decisions
