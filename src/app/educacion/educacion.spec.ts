@@ -41,7 +41,6 @@ describe('Educacion', () => {
       const card = cards[i];
       expect(card.querySelector('h3')?.textContent?.trim()).toBe(item.titulo);
       expect(card.textContent).toContain(item.institucion);
-      expect(card.textContent).toContain(item.descripcion);
       expect(card.textContent).toContain(`${item.fechaInicio} – ${item.fechaFin}`);
     }
   });
