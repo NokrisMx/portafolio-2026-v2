@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cv-guevaraaldo-dev.netlify.app/sitemap.xml
