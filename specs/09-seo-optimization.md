@@ -1,6 +1,6 @@
 # SPEC 09 — SEO on-page y crawlability del portafolio
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** Ninguna
 > **Date:** 2026-09-02
 > **Objective:** Completar el SEO on-page y de crawlability de la one-page con meta description, robots, canonical, Open Graph, Twitter Card y JSON-LD `Person` estáticos en `src/index.html`, más `robots.txt` y `sitemap.xml` estáticos en `public/`, todos con base URL `https://cv-guevaraaldo-dev.netlify.app`.
@@ -53,15 +53,15 @@ Person.sameAs = ["https://github.com/NokrisMx", "https://www.linkedin.com/in/ald
 
 ## Acceptance criteria
 
-- [ ] `npm run build` termina sin errores y sin exceder presupuestos.
-- [ ] `ng test --watch=false` pasa en verde (sin cambios en componentes ni servicios).
-- [ ] `/robots.txt` sirve `User-agent: *`, `Allow: /` y la línea `Sitemap:` con la URL de producción.
-- [ ] `/sitemap.xml` sirve la única URL canónica con `lastmod` 2026-09-02.
-- [ ] `index.html` incluye meta description ≤ 160 chars, `robots: index, follow` y canonical a `https://cv-guevaraaldo-dev.netlify.app/`.
-- [ ] Los tags Open Graph y Twitter Card están presentes, con `og:image` apuntando a la URL absoluta de `profile.png`.
-- [ ] El JSON-LD `Person` valida sin errores en `validator.schema.org` con `name`, `jobTitle`, `url`, `email` y `sameAs` (GitHub + LinkedIn).
-- [ ] Lighthouse (SEO, móvil) puntúa 100 sobre el build local.
-- [ ] Ningún componente Angular fue modificado.
+- [x] `npm run build` termina sin errores y sin exceder presupuestos.
+- [x] `ng test --watch=false` pasa en verde (sin cambios en componentes ni servicios).
+- [x] `/robots.txt` sirve `User-agent: *`, `Allow: /` y la línea `Sitemap:` con la URL de producción.
+- [x] `/sitemap.xml` sirve la única URL canónica con `lastmod` 2026-09-02.
+- [x] `index.html` incluye meta description ≤ 160 chars, `robots: index, follow` y canonical a `https://cv-guevaraaldo-dev.netlify.app/`.
+- [x] Los tags Open Graph y Twitter Card están presentes, con `og:image` apuntando a la URL absoluta de `profile.png`.
+- [x] El JSON-LD `Person` valida sin errores en `validator.schema.org` con `name`, `jobTitle`, `url`, `email` y `sameAs` (GitHub + LinkedIn).
+- [x] Lighthouse (SEO, móvil) puntúa 100 sobre el build local.
+- [x] Ningún componente Angular fue modificado.
 
 ## Decisions
 
