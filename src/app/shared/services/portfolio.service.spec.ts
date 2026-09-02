@@ -53,6 +53,55 @@ describe('PortfolioService', () => {
 
     httpMock.expectOne(API_URL).flush([]);
   });
+
+  it('shares a single HTTP request across simultaneous subscriptions', () => {
+    const first = mockPortfolio();
+    const values: Portfolio[] = [];
+
+    service.getPortfolio().subscribe((portfolio) => values.push(portfolio));
+    service.getPortfolio().subscribe((portfolio) => values.push(portfolio));
+
+    const req = httpMock.expectOne(API_URL);
+    expect(req.request.method).toBe('GET');
+    req.flush([first]);
+
+    expect(values).toHaveLength(2);
+    expect(values[0]).toEqual(first);
+    expect(values[1]).toEqual(first);
+  });
+
+  it('delivers the cached value to a late subscriber without a new request', () => {
+    const first = mockPortfolio();
+
+    service.getPortfolio().subscribe();
+    httpMock.expectOne(API_URL).flush([first]);
+
+    let lateValue: Portfolio | undefined;
+    service.getPortfolio().subscribe((portfolio) => (lateValue = portfolio));
+
+    expect(lateValue).toEqual(first);
+  });
+
+  it('resets the shared stream on error and retries with a new request', () => {
+    service.getPortfolio().subscribe({
+      next: () => expect.fail('should not emit a value'),
+      error: () => {},
+    });
+
+    httpMock
+      .expectOne(API_URL)
+      .flush('Error', { status: 500, statusText: 'Internal Server Error' });
+
+    const first = mockPortfolio();
+    let retriedValue: Portfolio | undefined;
+    service.getPortfolio().subscribe((portfolio) => (retriedValue = portfolio));
+
+    const req = httpMock.expectOne(API_URL);
+    expect(req.request.method).toBe('GET');
+    req.flush([first]);
+
+    expect(retriedValue).toEqual(first);
+  });
 });
 
 function mockPortfolio(): Portfolio {
