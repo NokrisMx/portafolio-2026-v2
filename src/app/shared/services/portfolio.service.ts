@@ -11,22 +11,20 @@ const API_URL = 'https://69d19cab5043d95be971190e.mockapi.io/api/v1/portfolio';
 export class PortfolioService {
   private readonly http = inject(HttpClient);
 
-  private readonly portfolio$: Observable<Portfolio> = this.http
-    .get<Portfolio[]>(API_URL)
-    .pipe(
-      map((items) => {
-        if (!items || items.length === 0) {
-          throw new Error('La respuesta de la API está vacía');
-        }
-        return items[0];
-      }),
-      share({
-        connector: () => new ReplaySubject(1),
-        resetOnError: true,
-        resetOnComplete: false,
-        resetOnRefCountZero: false,
-      }),
-    );
+  private readonly portfolio$: Observable<Portfolio> = this.http.get<Portfolio[]>(API_URL).pipe(
+    map((items) => {
+      if (!items || items.length === 0) {
+        throw new Error('La respuesta de la API está vacía');
+      }
+      return items[0];
+    }),
+    share({
+      connector: () => new ReplaySubject(1),
+      resetOnError: true,
+      resetOnComplete: false,
+      resetOnRefCountZero: false,
+    }),
+  );
 
   getPortfolio(): Observable<Portfolio> {
     return this.portfolio$;

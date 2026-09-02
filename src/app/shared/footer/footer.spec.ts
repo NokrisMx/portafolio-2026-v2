@@ -28,7 +28,7 @@ describe('Footer', () => {
 
     expect(compiled.textContent).toContain(portfolio.about.nombreCompleto);
     expect(compiled.textContent).toContain(
-      `© ${new Date().getFullYear()} ${portfolio.about.nombreCompleto}. Construido con precisión.`,
+      `© ${new Date().getFullYear()} ${portfolio.about.nombreCompleto}.`,
     );
   });
 
